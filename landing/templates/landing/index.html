@@ -1,0 +1,343 @@
+{% extends "landing/base.html" %}
+{% load static %}
+
+{% block title %}ScholarBridge — Scholarship Management System{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="home" class="ld-hero">
+  <div class="ld-container">
+    <div class="ld-hero-grid">
+      <div>
+        <div class="ld-kicker">Academic Aid &amp; Merit Allocation Platform</div>
+        <h1 class="ld-hero-title">Connecting deserving students with verified scholarship funding.</h1>
+        <p class="ld-hero-desc">
+          Manage scholarship programs, review academic documents, and allocate donor funds with transparent eligibility workflows and intelligent matching.
+        </p>
+        <div class="ld-hero-actions">
+          <a href="#portals" class="ld-btn-primary">
+            <span>Enter Your Portal</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+          <a href="#how-it-works" class="ld-btn-outline">
+            <span>See How It Works</span>
+          </a>
+        </div>
+        <div class="ld-hero-meta">
+          <span>Verified Document Review</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>Criteria-Based Matching</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>Direct Fund Tracking</span>
+        </div>
+      </div>
+
+      <div class="ld-hero-media">
+        <img
+          src="{% static 'landing/images/hero_campus.jpg' %}"
+          alt="Students walking across a sunlit university campus courtyard"
+          referrerpolicy="no-referrer"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <div class="ld-img-fallback" style="display: none;">
+          <i class="bi bi-buildings fs-1"></i>
+          <span>University Scholarship Campus</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="pb-5">
+  <div class="ld-container">
+    <div class="ld-stats-grid">
+      <div class="ld-stat-card">
+        <div class="ld-stat-value">14,820</div>
+        <div class="ld-stat-label">Total Students Registered</div>
+      </div>
+      <div class="ld-stat-card">
+        <div class="ld-stat-value">186</div>
+        <div class="ld-stat-label">Active Scholarships</div>
+      </div>
+      <div class="ld-stat-card">
+        <div class="ld-stat-value">312</div>
+        <div class="ld-stat-label">Verified Donors &amp; Foundations</div>
+      </div>
+      <div class="ld-stat-card">
+        <div class="ld-stat-value">$4.65M</div>
+        <div class="ld-stat-label">Total Funding Disbursed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="ld-section ld-section-alt">
+  <div class="ld-container">
+    <div class="ld-about-grid">
+      <div class="ld-about-media">
+        <img
+          src="{% static 'landing/images/about_study.jpg' %}"
+          alt="University scholars collaborating inside an academic library"
+          referrerpolicy="no-referrer"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <div class="ld-img-fallback" style="display: none;">
+          <i class="bi bi-book fs-1"></i>
+          <span>Collaborative Academic Study</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="ld-kicker">About the System</div>
+        <h2 class="ld-section-title">Structured financial aid built for clarity and accountability.</h2>
+        <p class="ld-section-lead">
+          Traditional scholarship workflows suffer from fragmented paperwork, opaque review timelines, and mismatched donor funds. ScholarBridge organizes every stage into dedicated portals for administrators, students, and sponsors.
+        </p>
+
+        <div class="ld-benefit-list">
+          <div class="ld-benefit-item">
+            <h4>For Students</h4>
+            <p>Discover eligible scholarships, reuse verified transcripts and income certificates, and monitor every review milestone from submission to award.</p>
+          </div>
+          <div class="ld-benefit-item">
+            <h4>For Donors &amp; Foundations</h4>
+            <p>Specify target districts, minimum CGPA, and household income thresholds while tracking exact fund utilization and supported scholars.</p>
+          </div>
+          <div class="ld-benefit-item">
+            <h4>For Administrators</h4>
+            <p>Audit applications, validate supporting documents, and review data-driven eligibility recommendations in a single governance workspace.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="ld-section">
+  <div class="ld-container">
+    <div class="ld-kicker">Platform Capabilities</div>
+    <h2 class="ld-section-title">Everything required to administer merit and need-based awards.</h2>
+    <p class="ld-section-lead">
+      Each module operates independently with dedicated controls while sharing consistent eligibility standards.
+    </p>
+
+    <div class="ld-features-grid">
+      <div class="ld-feature-card ld-span-3">
+        <div class="ld-feature-icon"><i class="bi bi-award"></i></div>
+        <h3>Scholarship Management</h3>
+        <p>Publish structured scholarship programs with clear award amounts, CGPA floors, income limits, and application deadlines.</p>
+      </div>
+      <div class="ld-feature-card ld-span-3">
+        <div class="ld-feature-icon"><i class="bi bi-file-earmark-text"></i></div>
+        <h3>Student Applications</h3>
+        <p>Guided application forms that surface academic history, household income details, and real-time review timelines.</p>
+      </div>
+      <div class="ld-feature-card">
+        <div class="ld-feature-icon"><i class="bi bi-wallet2"></i></div>
+        <h3>Donor Funding</h3>
+        <p>Allocate grants with city, district, and degree preferences while monitoring remaining balances and student headcount.</p>
+      </div>
+      <div class="ld-feature-card">
+        <div class="ld-feature-icon"><i class="bi bi-shield-check"></i></div>
+        <h3>Document Verification</h3>
+        <p>Side-by-side previewing for CNIC records, transcripts, and income statements with clear verified or rejected states.</p>
+      </div>
+      <div class="ld-feature-card">
+        <div class="ld-feature-icon"><i class="bi bi-cpu"></i></div>
+        <h3>Intelligent Scholarship Matching</h3>
+        <p>ML-assisted eligibility scoring ranks candidate-to-fund fit with transparent reasoning for review committees.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="ld-section ld-section-alt">
+  <div class="ld-container">
+    <div class="ld-kicker">How It Works</div>
+    <h2 class="ld-section-title">Tailored workflows for every participant.</h2>
+    <p class="ld-section-lead">Select a role below to inspect the end-to-end operational sequence.</p>
+
+    <div class="ld-tabs" role="tablist" aria-label="Process workflows">
+      <button type="button" class="ld-tab-btn active" role="tab" aria-selected="true" data-tab-target="tabStudent">Student Process</button>
+      <button type="button" class="ld-tab-btn" role="tab" aria-selected="false" data-tab-target="tabDonor">Donor Process</button>
+      <button type="button" class="ld-tab-btn" role="tab" aria-selected="false" data-tab-target="tabAdmin">Administration Process</button>
+    </div>
+
+    <div id="tabStudent" class="ld-tab-panel active" role="tabpanel">
+      <div class="ld-step-card">
+        <div class="ld-step-num">01. Profile &amp; Documents</div>
+        <h4>Complete Academic Profile</h4>
+        <p>Enter CNIC, institution, CGPA, and monthly household income, then upload academic transcripts and certificates.</p>
+      </div>
+      <div class="ld-step-card">
+        <div class="ld-step-num">02. Match &amp; Apply</div>
+        <h4>Submit Targeted Applications</h4>
+        <p>Browse open scholarships or inspect recommended matches ranked by your academic and financial eligibility.</p>
+      </div>
+      <div class="ld-step-card">
+        <div class="ld-step-num">03. Track Progress</div>
+        <h4>Monitor Review Milestones</h4>
+        <p>Follow status transitions from document verification through committee approval and final fund allocation.</p>
+      </div>
+    </div>
+
+    <div id="tabDonor" class="ld-tab-panel" role="tabpanel">
+      <div class="ld-step-card">
+        <div class="ld-step-num">01. Create Opportunity</div>
+        <h4>Define Scholarship Program</h4>
+        <p>Publish scholarship titles, award schedules, and eligibility criteria aligned with your foundation's mission.</p>
+      </div>
+      <div class="ld-step-card">
+        <div class="ld-step-num">02. Commit Funding</h4>
+        <h4>Set Allocation Preferences</h4>
+        <p>Add funding pools with optional city, district, degree, minimum CGPA, and maximum household income rules.</p>
+      </div>
+      <div class="ld-step-card">
+        <div class="ld-step-num">03. Review Impact</div>
+        <h4>Track Supported Students</h4>
+        <p>Inspect matched applicants, allocated amounts, and remaining grant balances across every active cohort.</p>
+      </div>
+    </div>
+
+    <div id="tabAdmin" class="ld-tab-panel" role="tabpanel">
+      <div class="ld-step-card">
+        <div class="ld-step-num">01. Verify Credentials</div>
+        <h4>Audit Users &amp; Documents</h4>
+        <p>Review submitted transcripts, CNICs, and income proofs inside the verification queue before committee scoring.</p>
+      </div>
+      <div class="ld-step-card">
+        <div class="ld-step-num">02. Evaluate &amp; Match</div>
+        <h4>Combine Review &amp; ML Insights</h4>
+        <p>Compare applicant CGPA and financial need with predictive eligibility scores and funding match recommendations.</p>
+      </div>
+      <div class="ld-step-card">
+        <div class="ld-step-num">03. Approve &amp; Disburse</div>
+        <h4>Finalize Scholarship Awards</h4>
+        <p>Approve qualifying applications, confirm donor fund pairings, and track institution-wide disbursement metrics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Role Selection Section -->
+<section id="portals" class="ld-section">
+  <div class="ld-container">
+    <div class="ld-kicker">Role Portals</div>
+    <h2 class="ld-section-title">Choose your dedicated workspace.</h2>
+    <p class="ld-section-lead">
+      Each portal provides role-specific dashboards, controls, and reporting interfaces.
+    </p>
+
+    <div class="ld-portals-grid">
+      <article class="ld-portal-card">
+        <div>
+          <div class="ld-portal-header">
+            <span class="ld-portal-icon"><i class="bi bi-sliders"></i></span>
+            <span class="small text-muted fw-semibold">Governance</span>
+          </div>
+          <h3>ADMIN PORTAL</h3>
+          <p>Manage users, scholarships, applications, funding and system operations.</p>
+        </div>
+        <a href="/admin/dashboard/" class="ld-btn-primary w-100">
+          <span>Admin Portal</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </article>
+
+      <article class="ld-portal-card">
+        <div>
+          <div class="ld-portal-header">
+            <span class="ld-portal-icon"><i class="bi bi-mortarboard"></i></span>
+            <span class="small text-muted fw-semibold">Applicants</span>
+          </div>
+          <h3>STUDENT PORTAL</h3>
+          <p>Discover scholarships, submit applications and track application progress.</p>
+        </div>
+        <a href="/student/dashboard/" class="ld-btn-primary w-100">
+          <span>Student Portal</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </article>
+
+      <article class="ld-portal-card">
+        <div>
+          <div class="ld-portal-header">
+            <span class="ld-portal-icon"><i class="bi bi-heart-pulse"></i></span>
+            <span class="small text-muted fw-semibold">Sponsors</span>
+          </div>
+          <h3>DONOR PORTAL</h3>
+          <p>Create scholarship opportunities, provide funding and support deserving students.</p>
+        </div>
+        <a href="/donor/dashboard/" class="ld-btn-primary w-100">
+          <span>Donor Portal</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="ld-section ld-section-alt">
+  <div class="ld-container">
+    <div class="ld-contact-grid">
+      <div>
+        <div class="ld-kicker">Contact &amp; Inquiries</div>
+        <h2 class="ld-section-title">Questions about institutional onboarding or donor partnerships?</h2>
+        <p class="ld-section-lead mb-4">
+          Reach out to the Scholarship Administration Office for guidance on eligibility rules, document verification, or institutional endowments.
+        </p>
+        <div class="ld-benefit-list">
+          <div class="ld-benefit-item">
+            <h4>Administration Desk</h4>
+            <p>support@scholarbridge.edu &middot; +92 (51) 555-0194</p>
+          </div>
+          <div class="ld-benefit-item">
+            <h4>Donor Relations</h4>
+            <p>endowments@scholarbridge.edu &middot; Block C, Academic Aid Wing</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ld-contact-card">
+        <form id="ldContactForm" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="contactName" class="ld-form-label">Full Name</label>
+              <input type="text" id="contactName" class="ld-form-control" placeholder="Amina Tariq" required>
+            </div>
+            <div class="col-md-6">
+              <label for="contactEmail" class="ld-form-label">Email Address</label>
+              <input type="email" id="contactEmail" class="ld-form-control" placeholder="amina@university.edu" required>
+            </div>
+            <div class="col-12">
+              <label for="contactRole" class="ld-form-label">Inquiry Category</label>
+              <select id="contactRole" class="ld-form-control" required>
+                <option value="">Select category</option>
+                <option value="student">Student Application Support</option>
+                <option value="donor">Donor Funding &amp; Endowments</option>
+                <option value="admin">Institutional Administration</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="contactMessage" class="ld-form-label">Message</label>
+              <textarea id="contactMessage" rows="4" class="ld-form-control" placeholder="Share details about your inquiry..." required></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="ld-btn-primary">Send Message</button>
+            </div>
+          </div>
+          <div id="ldContactFeedback" class="ld-form-feedback" role="status">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>Thank you. Your message has been recorded for the administration team.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

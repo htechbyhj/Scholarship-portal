@@ -1,0 +1,35 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}Settings — Student Portal{% endblock %}
+{% block breadcrumb %}Settings{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">Account Settings</h1>
+    <p class="stu-page-subtitle">Manage email alerts, deadline reminders, and password security.</p>
+  </div>
+</div>
+
+<div class="stu-card" style="max-width: 680px;">
+  <form data-stu-form data-feedback-target="stuSettingsFeedback">
+    <div class="d-grid gap-3">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="stuAlertDeadlines" checked>
+        <label class="form-check-label small" for="stuAlertDeadlines">Send scholarship deadline reminders 7 days before closing</label>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="stuAlertStatus" checked>
+        <label class="form-check-label small" for="stuAlertStatus">Notify when application or document status changes</label>
+      </div>
+      <div>
+        <button type="submit" class="stu-btn stu-btn-primary">Save Preferences</button>
+      </div>
+    </div>
+    <div id="stuSettingsFeedback" class="alert alert-success mt-3 mb-0 d-none small" role="status">
+      <i class="bi bi-check-circle me-2"></i>Notification preferences saved.
+    </div>
+  </form>
+</div>
+{% endblock %}

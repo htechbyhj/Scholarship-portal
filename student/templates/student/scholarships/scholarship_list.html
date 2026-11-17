@@ -1,0 +1,88 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}Available Scholarships — Student Portal{% endblock %}
+{% block breadcrumb %}Available Scholarships{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">Available Scholarships</h1>
+    <p class="stu-page-subtitle">Browse open scholarship grants, eligibility thresholds, and submission deadlines.</p>
+  </div>
+</div>
+
+<div class="stu-card mb-4">
+  <div class="d-flex flex-wrap gap-2">
+    <input type="search" class="stu-input flex-grow-1" style="max-width: 360px;" placeholder="Search scholarship title or criteria..." data-stu-search>
+    <select class="stu-select" data-stu-filter aria-label="Filter scholarships">
+      <option value="">All Categories</option>
+      <option value="merit">Merit-Based</option>
+      <option value="need">Need-Based</option>
+      <option value="stem">STEM &amp; Research</option>
+    </select>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-6 col-xl-4" data-stu-filterable data-status="stem">
+    <article class="stu-scholarship-card">
+      <div>
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <h2 class="h5 fw-bold mb-0">STEM Excellence Award</h2>
+          <span class="stu-amount">$4,500</span>
+        </div>
+        <p class="small text-muted mb-3">Annual tuition and laboratory fellowship for undergraduate engineering and computer science scholars.</p>
+        <div class="small text-muted d-grid gap-1 mb-3">
+          <div><strong>Deadline:</strong> <span class="stu-tabular">2026-12-15</span></div>
+          <div><strong>Eligibility:</strong> CGPA &ge; 3.50 &middot; Income &le; $650/mo</div>
+        </div>
+      </div>
+      <div class="d-flex gap-2">
+        <a href="/student/scholarships/detail/" class="stu-btn stu-btn-outline flex-grow-1">Details</a>
+        <a href="/student/scholarships/apply/" class="stu-btn stu-btn-primary flex-grow-1">Apply Now</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="col-md-6 col-xl-4" data-stu-filterable data-status="need">
+    <article class="stu-scholarship-card">
+      <div>
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <h2 class="h5 fw-bold mb-0">Need-Based Tuition Grant</h2>
+          <span class="stu-amount">$3,200</span>
+        </div>
+        <p class="small text-muted mb-3">Full semester tuition coverage supporting high-potential students from low-income households.</p>
+        <div class="small text-muted d-grid gap-1 mb-3">
+          <div><strong>Deadline:</strong> <span class="stu-tabular">2026-11-30</span></div>
+          <div><strong>Eligibility:</strong> CGPA &ge; 3.00 &middot; Income &le; $450/mo</div>
+        </div>
+      </div>
+      <div class="d-flex gap-2">
+        <a href="/student/scholarships/detail/" class="stu-btn stu-btn-outline flex-grow-1">Details</a>
+        <a href="/student/scholarships/apply/" class="stu-btn stu-btn-primary flex-grow-1">Apply Now</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="col-md-6 col-xl-4" data-stu-filterable data-status="merit">
+    <article class="stu-scholarship-card">
+      <div>
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <h2 class="h5 fw-bold mb-0">Rural Talent Fellowship</h2>
+          <span class="stu-amount">$3,800</span>
+        </div>
+        <p class="small text-muted mb-3">Dedicated living and tuition grant for undergraduate scholars from underserved districts.</p>
+        <div class="small text-muted d-grid gap-1 mb-3">
+          <div><strong>Deadline:</strong> <span class="stu-tabular">2027-01-10</span></div>
+          <div><strong>Eligibility:</strong> CGPA &ge; 3.20 &middot; Verified District Domicile</div>
+        </div>
+      </div>
+      <div class="d-flex gap-2">
+        <a href="/student/scholarships/detail/" class="stu-btn stu-btn-outline flex-grow-1">Details</a>
+        <a href="/student/scholarships/apply/" class="stu-btn stu-btn-primary flex-grow-1">Apply Now</a>
+      </div>
+    </article>
+  </div>
+</div>
+{% endblock %}

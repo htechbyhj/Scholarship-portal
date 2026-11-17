@@ -1,0 +1,48 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}Recommended Scholarships — Student Portal{% endblock %}
+{% block breadcrumb %}Recommended Scholarships{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">Recommended Scholarships</h1>
+    <p class="stu-page-subtitle">Personalized scholarship matches ranked by your CGPA, degree program, and household income profile.</p>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-6">
+    <article class="stu-scholarship-card">
+      <div>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="stu-status stu-status-success"><i class="bi bi-trophy"></i><span>Rank #1</span></span>
+          <span class="stu-tabular fw-bold text-primary">94.5% Eligibility Score</span>
+        </div>
+        <h2 class="h5 fw-bold mb-2">STEM Excellence Award ($4,500)</h2>
+        <p class="small text-muted mb-3">
+          <strong>Recommendation Reason:</strong> Your 3.89 CGPA places you in the top 5% of applicants, and your BSCS major in Islamabad aligns directly with donor preferences.
+        </p>
+      </div>
+      <a href="/student/scholarships/apply/" class="stu-btn stu-btn-primary">Apply Now</a>
+    </article>
+  </div>
+
+  <div class="col-md-6">
+    <article class="stu-scholarship-card">
+      <div>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="stu-status stu-status-info"><i class="bi bi-award"></i><span>Rank #2</span></span>
+          <span class="stu-tabular fw-bold text-primary">89.2% Eligibility Score</span>
+        </div>
+        <h2 class="h5 fw-bold mb-2">National Merit Tuition Bursary ($3,200)</h2>
+        <p class="small text-muted mb-3">
+          <strong>Recommendation Reason:</strong> Household income ($380/month) and verified academic transcript satisfy all mandatory need-based funding rules.
+        </p>
+      </div>
+      <a href="/student/scholarships/apply/" class="stu-btn stu-btn-primary">Apply Now</a>
+    </article>
+  </div>
+</div>
+{% endblock %}

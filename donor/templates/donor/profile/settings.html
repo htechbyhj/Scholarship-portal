@@ -1,0 +1,35 @@
+{% extends "donor/base.html" %}
+{% load static %}
+
+{% block title %}Settings — Donor Portal{% endblock %}
+{% block breadcrumb %}Settings{% endblock %}
+
+{% block content %}
+<div class="dnr-page-header">
+  <div>
+    <h1 class="dnr-page-title">Donor Portal Settings</h1>
+    <p class="dnr-page-subtitle">Configure match notifications and quarterly disbursement reports.</p>
+  </div>
+</div>
+
+<div class="dnr-card" style="max-width: 680px;">
+  <form data-dnr-form data-feedback-target="dnrSettingsFeedback">
+    <div class="d-grid gap-3">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="dnrAlertMatch" checked>
+        <label class="form-check-label small" for="dnrAlertMatch">Notify when new applicants match active funding pools</label>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="dnrAlertReport" checked>
+        <label class="form-check-label small" for="dnrAlertReport">Email quarterly utilization and student impact summaries</label>
+      </div>
+      <div>
+        <button type="submit" class="dnr-btn dnr-btn-primary">Save Preferences</button>
+      </div>
+    </div>
+    <div id="dnrSettingsFeedback" class="alert alert-success mt-3 mb-0 d-none small" role="status">
+      <i class="bi bi-check-circle me-2"></i>Donor preferences updated.
+    </div>
+  </form>
+</div>
+{% endblock %}

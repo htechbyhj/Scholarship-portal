@@ -1,0 +1,271 @@
+{% extends "admin_panel/base.html" %}
+{% load static %}
+
+{% block title %}Admin Dashboard — ScholarBridge{% endblock %}
+{% block breadcrumb %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="adm-page-header">
+  <div>
+    <h1 class="adm-page-title">Administration Dashboard</h1>
+    <p class="adm-page-subtitle">Institution-wide overview of scholarships, applicant reviews, and donor funding allocations.</p>
+  </div>
+  <div class="d-flex gap-2">
+    <a href="/admin/applications/" class="adm-btn adm-btn-outline">Review Applications</a>
+    <a href="/admin/ml/recommendations/" class="adm-btn adm-btn-primary">View ML Matches</a>
+  </div>
+</div>
+
+<!-- 8 Required KPI Cards -->
+<section class="adm-kpi-grid" aria-label="Key system statistics">
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Total Students</span><span class="adm-kpi-icon"><i class="bi bi-mortarboard"></i></span></div>
+    <div class="adm-kpi-value">14,820</div>
+    <div class="adm-kpi-meta">+312 this semester</div>
+  </div>
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Total Donors</span><span class="adm-kpi-icon"><i class="bi bi-building-heart"></i></span></div>
+    <div class="adm-kpi-value">312</div>
+    <div class="adm-kpi-meta">28 institutional partners</div>
+  </div>
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Total Scholarships</span><span class="adm-kpi-icon"><i class="bi bi-award"></i></span></div>
+    <div class="adm-kpi-value">186</div>
+    <div class="adm-kpi-meta">42 open for Fall 2026</div>
+  </div>
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Total Applications</span><span class="adm-kpi-icon"><i class="bi bi-file-earmark-text"></i></span></div>
+    <div class="adm-kpi-value">965</div>
+    <div class="adm-kpi-meta">Current cycle volume</div>
+  </div>
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Pending Applications</span><span class="adm-kpi-icon"><i class="bi bi-hourglass-split"></i></span></div>
+    <div class="adm-kpi-value">312</div>
+    <div class="adm-kpi-meta">Awaiting document or committee review</div>
+  </div>
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Approved Applications</span><span class="adm-kpi-icon"><i class="bi bi-check2-circle"></i></span></div>
+    <div class="adm-kpi-value">485</div>
+    <div class="adm-kpi-meta">50.3% approval rate</div>
+  </div>
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Rejected Applications</span><span class="adm-kpi-icon"><i class="bi bi-x-circle"></i></span></div>
+    <div class="adm-kpi-value">168</div>
+    <div class="adm-kpi-meta">Incomplete or ineligible criteria</div>
+  </div>
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Total Funding</span><span class="adm-kpi-icon"><i class="bi bi-cash-stack"></i></span></div>
+    <div class="adm-kpi-value">$4.65M</div>
+    <div class="adm-kpi-meta">$1.18M remaining for allocation</div>
+  </div>
+</section>
+
+<!-- Charts Row -->
+<section class="row g-3 mb-4">
+  <div class="col-lg-8">
+    <div class="adm-card h-100">
+      <div class="adm-card-header">
+        <h2 class="adm-card-title">Scholarship Statistics</h2>
+        <span class="small text-muted">Applications vs. Awarded by Program</span>
+      </div>
+      <div class="adm-chart-box">
+        <canvas id="admScholarshipChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="adm-card h-100">
+      <div class="adm-card-header">
+        <h2 class="adm-card-title">Application Status</h2>
+        <span class="small text-muted">Cycle Distribution</span>
+      </div>
+      <div class="adm-chart-box">
+        <canvas id="admApplicationStatusChart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tables Row -->
+<section class="row g-3 mb-4">
+  <div class="col-lg-7">
+    <div class="adm-card h-100">
+      <div class="adm-card-header">
+        <h2 class="adm-card-title">Recent Applications</h2>
+        <a href="/admin/applications/" class="adm-btn adm-btn-outline adm-btn-sm">Manage All</a>
+      </div>
+      <div class="adm-table-wrap">
+        <table class="adm-table">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Scholarship</th>
+              <th>CGPA</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="fw-semibold">Hira Salman</div>
+                <div class="small text-muted adm-tabular">APP-4091</div>
+              </td>
+              <td>STEM Excellence Award</td>
+              <td class="adm-tabular">3.89</td>
+              <td><span class="adm-status adm-status-warning"><i class="bi bi-clock"></i><span>Pending</span></span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="fw-semibold">Bilal Ahmed</div>
+                <div class="small text-muted adm-tabular">APP-4090</div>
+              </td>
+              <td>Need-Based Tuition Grant</td>
+              <td class="adm-tabular">3.64</td>
+              <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Approved</span></span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="fw-semibold">Sanaullah Khan</div>
+                <div class="small text-muted adm-tabular">APP-4089</div>
+              </td>
+              <td>Rural Talent Fellowship</td>
+              <td class="adm-tabular">3.72</td>
+              <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Approved</span></span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="fw-semibold">Zainab Raza</div>
+                <div class="small text-muted adm-tabular">APP-4088</div>
+              </td>
+              <td>Women in Computing</td>
+              <td class="adm-tabular">3.12</td>
+              <td><span class="adm-status adm-status-danger"><i class="bi bi-x-circle"></i><span>Rejected</span></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="adm-card h-100">
+      <div class="adm-card-header">
+        <h2 class="adm-card-title">Recent Users</h2>
+        <a href="/admin/users/" class="adm-btn adm-btn-outline adm-btn-sm">Directory</a>
+      </div>
+      <div class="adm-table-wrap">
+        <table class="adm-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Joined</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="fw-semibold">Ayesha Siddiqui</div>
+                <div class="small text-muted">ayesha@nust.edu</div>
+              </td>
+              <td>Student</td>
+              <td class="adm-tabular small text-muted">2026-11-16</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="fw-semibold">Crescent Education Trust</div>
+                <div class="small text-muted">grants@crescent.org</div>
+              </td>
+              <td>Donor</td>
+              <td class="adm-tabular small text-muted">2026-11-15</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="fw-semibold">Usman Farooq</div>
+                <div class="small text-muted">usman.f@lums.edu</div>
+              </td>
+              <td>Student</td>
+              <td class="adm-tabular small text-muted">2026-11-14</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="fw-semibold">Meridian Foundation</div>
+                <div class="small text-muted">aid@meridian.org</div>
+              </td>
+              <td>Donor</td>
+              <td class="adm-tabular small text-muted">2026-11-12</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Activities & Notifications -->
+<section class="row g-3">
+  <div class="col-lg-6">
+    <div class="adm-card h-100">
+      <div class="adm-card-header">
+        <h2 class="adm-card-title">Recent Activities</h2>
+        <span class="small text-muted">Audit Trail</span>
+      </div>
+      <div>
+        <div class="adm-list-item">
+          <div>
+            <div class="fw-semibold">Approved 12 applications for Rural Talent Fellowship</div>
+            <div class="small text-muted">Reviewed by Dr. Nadia Mansoor &middot; Committee Batch #14</div>
+          </div>
+          <span class="small text-muted adm-tabular">25m ago</span>
+        </div>
+        <div class="adm-list-item">
+          <div>
+            <div class="fw-semibold">Verified transcript and income certificate for STU-1940</div>
+            <div class="small text-muted">Document Verification Queue</div>
+          </div>
+          <span class="small text-muted adm-tabular">1h ago</span>
+        </div>
+        <div class="adm-list-item">
+          <div>
+            <div class="fw-semibold">Published ML Recommendation Model v2.4</div>
+            <div class="small text-muted">Accuracy 93.8% &middot; 4,210 training samples</div>
+          </div>
+          <span class="small text-muted adm-tabular">4h ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="adm-card h-100">
+      <div class="adm-card-header">
+        <h2 class="adm-card-title">System Notifications</h2>
+        <a href="/admin/notifications/" class="adm-btn adm-btn-outline adm-btn-sm">All Alerts</a>
+      </div>
+      <div>
+        <div class="adm-list-item">
+          <div>
+            <div class="fw-semibold">Deadline approaching for STEM Excellence Award</div>
+            <div class="small text-muted">42 pending applications require verification before Nov 30</div>
+          </div>
+          <span class="adm-status adm-status-warning"><i class="bi bi-exclamation-triangle"></i><span>Action</span></span>
+        </div>
+        <div class="adm-list-item">
+          <div>
+            <div class="fw-semibold">New donor endowment commitment received</div>
+            <div class="small text-muted">Horizon Foundation committed $50,000 for District Lahore</div>
+          </div>
+          <span class="adm-status adm-status-info"><i class="bi bi-info-circle"></i><span>Funding</span></span>
+        </div>
+        <div class="adm-list-item">
+          <div>
+            <div class="fw-semibold">Batch funding match run completed</div>
+            <div class="small text-muted">38 students paired with active donor pools</div>
+          </div>
+          <span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Complete</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

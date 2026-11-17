@@ -1,0 +1,45 @@
+{% extends "admin_panel/base.html" %}
+{% load static %}
+
+{% block title %}Notifications — Admin Panel{% endblock %}
+{% block breadcrumb %}Notifications{% endblock %}
+
+{% block content %}
+<div class="adm-page-header">
+  <div>
+    <h1 class="adm-page-title">Notifications</h1>
+    <p class="adm-page-subtitle">System alerts covering applications, document verification, donor funding, and model runs.</p>
+  </div>
+</div>
+
+<div class="adm-card">
+  <div class="adm-list-item">
+    <div>
+      <div class="fw-semibold">14 new applications submitted to STEM Excellence Award</div>
+      <div class="small text-muted">Application Management &middot; Requires eligibility review before Nov 30</div>
+    </div>
+    <span class="adm-tabular small text-muted">18m ago</span>
+  </div>
+  <div class="adm-list-item">
+    <div>
+      <div class="fw-semibold">Income certificate uploaded for verification (STU-2049)</div>
+      <div class="small text-muted">Document Verification &middot; Assigned to Committee Queue</div>
+    </div>
+    <span class="adm-tabular small text-muted">1h ago</span>
+  </div>
+  <div class="adm-list-item">
+    <div>
+      <div class="fw-semibold">Horizon Education Trust added $50,000 to Lahore district pool</div>
+      <div class="small text-muted">Funding Management &middot; Ready for match allocation</div>
+    </div>
+    <span class="adm-tabular small text-muted">3h ago</span>
+  </div>
+  <div class="adm-list-item">
+    <div>
+      <div class="fw-semibold">ML Model v2.4.0 promoted to active status</div>
+      <div class="small text-muted">ML Model Runs &middot; Validation accuracy 93.8%</div>
+    </div>
+    <span class="adm-tabular small text-muted">2d ago</span>
+  </div>
+</div>
+{% endblock %}

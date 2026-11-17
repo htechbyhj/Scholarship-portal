@@ -1,0 +1,40 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}Notifications — Student Portal{% endblock %}
+{% block breadcrumb %}Notifications{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">Notifications</h1>
+    <p class="stu-page-subtitle">Updates on your scholarship applications, document checks, and upcoming deadlines.</p>
+  </div>
+</div>
+
+<div class="stu-card">
+  <div class="d-grid gap-3">
+    <div class="d-flex justify-content-between border-bottom pb-3">
+      <div>
+        <div class="fw-semibold">Application APP-4091 moved to Committee Review</div>
+        <div class="small text-muted">STEM Excellence Award &middot; Verified transcript attached</div>
+      </div>
+      <span class="stu-tabular small text-muted">2h ago</span>
+    </div>
+    <div class="d-flex justify-content-between border-bottom pb-3">
+      <div>
+        <div class="fw-semibold">Academic Transcript verified successfully</div>
+        <div class="small text-muted">BSCS_Transcript_Sem6.pdf approved by Document Verification Office</div>
+      </div>
+      <span class="stu-tabular small text-muted">1d ago</span>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div>
+        <div class="fw-semibold">Women in Computing Fellowship approved</div>
+        <div class="small text-muted">Award amount $3,000 scheduled for semester tuition credit</div>
+      </div>
+      <span class="stu-tabular small text-muted">5d ago</span>
+    </div>
+  </div>
+</div>
+{% endblock %}

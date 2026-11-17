@@ -1,0 +1,47 @@
+<aside id="stuSidebar" class="stu-sidebar" aria-label="Student sidebar navigation">
+  <div class="stu-sidebar-header">
+    <a href="/student/dashboard/" class="stu-brand">
+      <span class="stu-brand-mark" aria-hidden="true"><i class="bi bi-mortarboard-fill"></i></span>
+      <span>Student Portal</span>
+    </a>
+    <button type="button" id="stuSidebarClose" class="btn btn-sm d-lg-none" aria-label="Close sidebar">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <nav class="stu-sidebar-nav">
+    <a href="/student/dashboard/" class="stu-nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+      <i class="bi bi-grid"></i><span>Dashboard</span>
+    </a>
+    <a href="/student/scholarships/" class="stu-nav-item {% if active_page == 'scholarships' %}active{% endif %}">
+      <i class="bi bi-award"></i><span>Available Scholarships</span>
+    </a>
+    <a href="/student/applications/" class="stu-nav-item {% if active_page == 'applications' %}active{% endif %}">
+      <i class="bi bi-file-earmark-text"></i><span>My Applications</span>
+    </a>
+    <a href="/student/scholarships/recommended/" class="stu-nav-item {% if active_page == 'recommended' %}active{% endif %}">
+      <i class="bi bi-stars"></i><span>Recommended Scholarships</span>
+    </a>
+    <a href="/student/documents/upload/" class="stu-nav-item {% if active_page == 'upload_documents' %}active{% endif %}">
+      <i class="bi bi-cloud-upload"></i><span>Upload Documents</span>
+    </a>
+    <a href="/student/documents/" class="stu-nav-item {% if active_page == 'my_documents' %}active{% endif %}">
+      <i class="bi bi-folder2-open"></i><span>My Documents</span>
+    </a>
+    <a href="/student/profile/" class="stu-nav-item {% if active_page == 'profile' %}active{% endif %}">
+      <i class="bi bi-person"></i><span>My Profile</span>
+    </a>
+    <a href="/student/notifications/" class="stu-nav-item {% if active_page == 'notifications' %}active{% endif %}">
+      <i class="bi bi-bell"></i><span>Notifications</span>
+    </a>
+    <a href="/student/settings/" class="stu-nav-item {% if active_page == 'settings' %}active{% endif %}">
+      <i class="bi bi-gear"></i><span>Settings</span>
+    </a>
+  </nav>
+
+  <div class="stu-sidebar-footer">
+    <a href="/student/login/" class="stu-nav-item">
+      <i class="bi bi-box-arrow-left"></i><span>Logout</span>
+    </a>
+  </div>
+</aside>

@@ -1,0 +1,76 @@
+{% extends "donor/base.html" %}
+{% load static %}
+
+{% block title %}Funding Matches — Donor Portal{% endblock %}
+{% block breadcrumb %}Funding Matches{% endblock %}
+
+{% block content %}
+<div class="dnr-page-header">
+  <div>
+    <h1 class="dnr-page-title">Funding Matches</h1>
+    <p class="dnr-page-subtitle">Applications matched to your funding pools with eligibility scores, selection methods, and allocation status.</p>
+  </div>
+</div>
+
+<div class="dnr-card">
+  <div class="d-flex flex-wrap gap-2 mb-3">
+    <input type="search" class="dnr-input flex-grow-1" style="max-width: 320px;" placeholder="Search student or scholarship..." data-dnr-search>
+    <select class="dnr-select" data-dnr-filter aria-label="Filter matches">
+      <option value="">All Statuses</option>
+      <option value="allocated">Allocated</option>
+      <option value="disbursed">Disbursed</option>
+      <option value="recommended">Recommended</option>
+    </select>
+  </div>
+
+  <div class="dnr-table-wrap">
+    <table class="dnr-table">
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Scholarship</th>
+          <th>Eligibility Score</th>
+          <th>Allocated Amount</th>
+          <th>Selection Method</th>
+          <th>Match Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-dnr-filterable data-status="disbursed">
+          <td>
+            <div class="fw-semibold">Mariam Afridi</div>
+            <div class="small text-muted">University of Peshawar &middot; CGPA 3.94</div>
+          </td>
+          <td>STEM Excellence Award</td>
+          <td class="dnr-tabular fw-semibold">96.4%</td>
+          <td class="dnr-tabular">$4,500</td>
+          <td>ML Eligibility + Criteria</td>
+          <td><span class="dnr-status dnr-status-success"><i class="bi bi-check-circle"></i><span>Disbursed</span></span></td>
+        </tr>
+        <tr data-dnr-filterable data-status="recommended">
+          <td>
+            <div class="fw-semibold">Hira Salman</div>
+            <div class="small text-muted">NUST Islamabad &middot; CGPA 3.89</div>
+          </td>
+          <td>STEM Excellence Award</td>
+          <td class="dnr-tabular fw-semibold">93.1%</td>
+          <td class="dnr-tabular">$4,500</td>
+          <td>ML Eligibility + Criteria</td>
+          <td><span class="dnr-status dnr-status-warning"><i class="bi bi-clock"></i><span>Recommended</span></span></td>
+        </tr>
+        <tr data-dnr-filterable data-status="allocated">
+          <td>
+            <div class="fw-semibold">Bilal Ahmed</div>
+            <div class="small text-muted">UET Lahore &middot; CGPA 3.64</div>
+          </td>
+          <td>Lahore Engineering Bursary</td>
+          <td class="dnr-tabular fw-semibold">88.7%</td>
+          <td class="dnr-tabular">$3,000</td>
+          <td>Committee Selection</td>
+          <td><span class="dnr-status dnr-status-info"><i class="bi bi-link-45deg"></i><span>Allocated</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

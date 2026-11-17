@@ -1,0 +1,47 @@
+{% extends "donor/base.html" %}
+{% load static %}
+
+{% block title %}Create Scholarship — Donor Portal{% endblock %}
+{% block breadcrumb %}Create Scholarship{% endblock %}
+
+{% block content %}
+<div class="dnr-page-header">
+  <div>
+    <h1 class="dnr-page-title">Create Scholarship Program</h1>
+    <p class="dnr-page-subtitle">Define scholarship title, description, eligibility rules, award value, and closing date.</p>
+  </div>
+</div>
+
+<div class="dnr-card" style="max-width: 780px;">
+  <form data-dnr-form data-feedback-target="dnrCreateFeedback" novalidate>
+    <div class="row g-3">
+      <div class="col-12">
+        <label for="schTitle" class="form-label small fw-semibold">Scholarship Title</label>
+        <input type="text" id="schTitle" class="dnr-input w-100" placeholder="e.g., Horizon Clean Energy Fellowship" required>
+      </div>
+      <div class="col-12">
+        <label for="schDescription" class="form-label small fw-semibold">Description</label>
+        <textarea id="schDescription" rows="4" class="dnr-input w-100" placeholder="Describe the scholarship mission and expenses covered..." required></textarea>
+      </div>
+      <div class="col-12">
+        <label for="schCriteria" class="form-label small fw-semibold">Eligibility Criteria</label>
+        <textarea id="schCriteria" rows="3" class="dnr-input w-100" placeholder="Minimum CGPA, eligible degrees, district preferences, income ceiling..." required></textarea>
+      </div>
+      <div class="col-md-6">
+        <label for="schAmount" class="form-label small fw-semibold">Award Amount (USD)</label>
+        <input type="number" min="100" id="schAmount" class="dnr-input w-100 dnr-tabular" placeholder="4000" required>
+      </div>
+      <div class="col-md-6">
+        <label for="schDeadline" class="form-label small fw-semibold">Application Deadline</label>
+        <input type="date" id="schDeadline" class="dnr-input w-100" required>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="dnr-btn dnr-btn-primary">Publish Scholarship</button>
+      </div>
+    </div>
+    <div id="dnrCreateFeedback" class="alert alert-success mt-3 mb-0 d-none small" role="status">
+      <i class="bi bi-check-circle me-2"></i>Scholarship details validated and ready for listing.
+    </div>
+  </form>
+</div>
+{% endblock %}

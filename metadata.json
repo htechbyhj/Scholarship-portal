@@ -1,0 +1,6 @@
+{
+  "name": "ScholarBridge — Scholarship Management System",
+  "description": "Multi-portal Django frontend UI for scholarship administration, student applications, and donor funding.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

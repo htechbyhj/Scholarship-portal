@@ -1,0 +1,76 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}My Applications — Student Portal{% endblock %}
+{% block breadcrumb %}My Applications{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">My Applications</h1>
+    <p class="stu-page-subtitle">Track submitted scholarship applications, award amounts, and decision statuses.</p>
+  </div>
+  <a href="/student/scholarships/apply/" class="stu-btn stu-btn-primary">New Application</a>
+</div>
+
+<div class="stu-card">
+  <div class="d-flex flex-wrap gap-2 mb-3">
+    <input type="search" class="stu-input flex-grow-1" style="max-width: 320px;" placeholder="Search scholarship name..." data-stu-search>
+    <select class="stu-select" data-stu-filter aria-label="Filter applications by status">
+      <option value="">All Statuses</option>
+      <option value="pending">Pending</option>
+      <option value="approved">Approved</option>
+      <option value="rejected">Rejected</option>
+    </select>
+  </div>
+
+  <div class="stu-table-wrap">
+    <table class="stu-table">
+      <thead>
+        <tr>
+          <th>App ID</th>
+          <th>Scholarship Name</th>
+          <th>Application Date</th>
+          <th>Award Amount</th>
+          <th>Status</th>
+          <th class="text-end">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-stu-filterable data-status="pending">
+          <td class="stu-tabular">APP-4091</td>
+          <td class="fw-semibold">STEM Excellence Award</td>
+          <td class="stu-tabular">2026-11-12</td>
+          <td class="stu-tabular">$4,500</td>
+          <td><span class="stu-status stu-status-warning"><i class="bi bi-clock"></i><span>Pending</span></span></td>
+          <td class="text-end"><a href="/student/applications/detail/" class="stu-btn stu-btn-outline stu-btn-sm">View Details</a></td>
+        </tr>
+        <tr data-stu-filterable data-status="approved">
+          <td class="stu-tabular">APP-3844</td>
+          <td class="fw-semibold">Women in Computing Fellowship</td>
+          <td class="stu-tabular">2026-10-18</td>
+          <td class="stu-tabular">$3,000</td>
+          <td><span class="stu-status stu-status-success"><i class="bi bi-check-circle"></i><span>Approved</span></span></td>
+          <td class="text-end"><a href="/student/applications/detail/" class="stu-btn stu-btn-outline stu-btn-sm">View Details</a></td>
+        </tr>
+        <tr data-stu-filterable data-status="pending">
+          <td class="stu-tabular">APP-3990</td>
+          <td class="fw-semibold">Need-Based Tuition Grant</td>
+          <td class="stu-tabular">2026-11-03</td>
+          <td class="stu-tabular">$3,200</td>
+          <td><span class="stu-status stu-status-warning"><i class="bi bi-clock"></i><span>Pending</span></span></td>
+          <td class="text-end"><a href="/student/applications/detail/" class="stu-btn stu-btn-outline stu-btn-sm">View Details</a></td>
+        </tr>
+        <tr data-stu-filterable data-status="rejected">
+          <td class="stu-tabular">APP-3502</td>
+          <td class="fw-semibold">Summer Research Stipend</td>
+          <td class="stu-tabular">2026-09-14</td>
+          <td class="stu-tabular">$2,500</td>
+          <td><span class="stu-status stu-status-danger"><i class="bi bi-x-circle"></i><span>Rejected</span></span></td>
+          <td class="text-end"><a href="/student/applications/detail/" class="stu-btn stu-btn-outline stu-btn-sm">View Details</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

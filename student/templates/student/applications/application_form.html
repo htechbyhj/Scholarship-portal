@@ -1,0 +1,72 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}Application Form — Student Portal{% endblock %}
+{% block breadcrumb %}Submit Application{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">Scholarship Application Form</h1>
+    <p class="stu-page-subtitle">Complete academic, financial, and supporting document fields to submit your application.</p>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-8">
+    <div class="stu-card">
+      <form data-stu-form data-feedback-target="stuApplyFeedback" novalidate>
+        <div class="row g-3">
+          <div class="col-12">
+            <label for="applyScholarship" class="form-label small fw-semibold">Selected Scholarship</label>
+            <select id="applyScholarship" class="stu-select w-100" required>
+              <option value="stem">STEM Excellence Award — $4,500 (Deadline: 2026-12-15)</option>
+              <option value="need">Need-Based Tuition Grant — $3,200 (Deadline: 2026-11-30)</option>
+              <option value="rural">Rural Talent Fellowship — $3,800 (Deadline: 2027-01-10)</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="applyCgpa" class="form-label small fw-semibold">Current CGPA (out of 4.00)</label>
+            <input type="number" step="0.01" min="0" max="4" id="applyCgpa" class="stu-input w-100 stu-tabular" value="3.89" required>
+          </div>
+          <div class="col-md-6">
+            <label for="applyIncome" class="form-label small fw-semibold">Monthly Household Income (USD)</label>
+            <input type="number" min="0" id="applyIncome" class="stu-input w-100 stu-tabular" value="380" required>
+          </div>
+          <div class="col-md-6">
+            <label for="applyTranscript" class="form-label small fw-semibold">Academic Transcript (PDF/Image)</label>
+            <input type="file" id="applyTranscript" class="form-control" data-stu-file-input data-preview-target="transcriptPreview" required>
+            <div id="transcriptPreview"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="applyIncomeDoc" class="form-label small fw-semibold">Income Certificate (PDF/Image)</label>
+            <input type="file" id="applyIncomeDoc" class="form-control" data-stu-file-input data-preview-target="incomeDocPreview" required>
+            <div id="incomeDocPreview"></div>
+          </div>
+          <div class="col-12">
+            <label for="applyStatement" class="form-label small fw-semibold">Statement of Purpose</label>
+            <textarea id="applyStatement" rows="4" class="stu-input w-100" placeholder="Briefly describe your academic goals and financial need..." required></textarea>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="stu-btn stu-btn-primary">Submit Application</button>
+          </div>
+        </div>
+        <div id="stuApplyFeedback" class="alert alert-success mt-3 mb-0 d-none small" role="status">
+          <i class="bi bi-check-circle me-2"></i>Application validated and queued for review.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="stu-card">
+      <h2 class="stu-card-title mb-3">Application Checklist</h2>
+      <ul class="small text-muted d-grid gap-2 ps-3 mb-0">
+        <li>Verify your CGPA matches your latest official transcript.</li>
+        <li>Upload clear, legible PDF or JPEG scans under 5 MB.</li>
+        <li>Confirm household income matches attested documentation.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

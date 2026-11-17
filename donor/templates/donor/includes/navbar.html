@@ -1,0 +1,58 @@
+{% load static %}
+<header class="dnr-topbar">
+  <div class="d-flex align-items-center gap-3 min-width-0">
+    <button type="button" id="dnrSidebarToggle" class="dnr-icon-btn d-lg-none" aria-label="Open navigation menu">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="small text-muted text-truncate">
+      <span>Donor Portal</span>
+      <span class="mx-1">/</span>
+      <strong style="color: var(--dnr-text);">{% block breadcrumb %}Dashboard{% endblock %}</strong>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center gap-2">
+    <a href="/" class="dnr-btn dnr-btn-outline dnr-btn-sm d-none d-sm-inline-flex">
+      <i class="bi bi-house"></i><span>Home</span>
+    </a>
+
+    <button type="button" id="dnrThemeToggle" class="dnr-icon-btn" aria-label="Toggle color theme">
+      <i class="bi bi-moon"></i>
+    </button>
+
+    <div class="dropdown">
+      <button type="button" class="dnr-icon-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open notifications">
+        <i class="bi bi-bell"></i>
+        <span class="dnr-notif-count">2</span>
+      </button>
+      <div class="dropdown-menu dropdown-menu-end dnr-dropdown-menu">
+        <div class="px-2 py-1 border-bottom d-flex justify-content-between align-items-center">
+          <span class="fw-semibold small">Notifications</span>
+          <a href="/donor/notifications/" class="small text-decoration-none">View all</a>
+        </div>
+        <a class="dropdown-item" href="/donor/matches/">
+          <div class="fw-semibold">8 new students matched to your pool</div>
+          <div class="small text-muted">STEM Excellence Award &middot; 1h ago</div>
+        </a>
+        <a class="dropdown-item" href="/donor/funding/">
+          <div class="fw-semibold">Q4 disbursement report published</div>
+          <div class="small text-muted">Funding Management &middot; 1d ago</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button type="button" class="dnr-avatar-btn" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="{% static 'donor/images/avatar_donor.jpg' %}" alt="Horizon Education Trust" class="dnr-avatar-img" referrerpolicy="no-referrer">
+        <span class="d-none d-md-inline">Horizon Trust</span>
+        <i class="bi bi-chevron-down small"></i>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end dnr-dropdown-menu">
+        <li><a class="dropdown-item" href="/donor/profile/"><i class="bi bi-building me-2"></i>Organization Profile</a></li>
+        <li><a class="dropdown-item" href="/donor/settings/"><i class="bi bi-gear me-2"></i>Settings</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="/donor/login/"><i class="bi bi-box-arrow-left me-2"></i>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

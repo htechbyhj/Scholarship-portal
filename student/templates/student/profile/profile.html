@@ -1,0 +1,81 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}My Profile — Student Portal{% endblock %}
+{% block breadcrumb %}My Profile{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">My Academic &amp; Personal Profile</h1>
+    <p class="stu-page-subtitle">Maintain accurate personal, institutional, and household income information.</p>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-4">
+    <div class="stu-card text-center">
+      <img src="{% static 'student/images/avatar_student.jpg' %}" alt="Ayesha Siddiqui" class="rounded-circle mb-3" width="96" height="96" style="object-fit: cover;" referrerpolicy="no-referrer">
+      <h2 class="h5 fw-bold mb-1">Ayesha Siddiqui</h2>
+      <div class="small text-muted mb-3">NUST Islamabad &middot; BS Computer Science</div>
+      <div class="d-grid gap-2 small text-start border-top pt-3">
+        <div class="d-flex justify-content-between"><span class="text-muted">CNIC</span><strong class="stu-tabular">61101-4829104-2</strong></div>
+        <div class="d-flex justify-content-between"><span class="text-muted">CGPA</span><strong class="stu-tabular">3.89 / 4.00</strong></div>
+        <div class="d-flex justify-content-between"><span class="text-muted">Monthly Income</span><strong class="stu-tabular">$380</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-8">
+    <div class="stu-card">
+      <h2 class="stu-card-title mb-3">Personal &amp; Academic Details</h2>
+      <form data-stu-form data-feedback-target="stuProfileFeedback" novalidate>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="profName" class="form-label small fw-semibold">Full Name</label>
+            <input type="text" id="profName" class="stu-input w-100" value="Ayesha Siddiqui" required>
+          </div>
+          <div class="col-md-6">
+            <label for="profCnic" class="form-label small fw-semibold">CNIC</label>
+            <input type="text" id="profCnic" class="stu-input w-100 stu-tabular" value="61101-4829104-2" required>
+          </div>
+          <div class="col-md-6">
+            <label for="profPhone" class="form-label small fw-semibold">Phone</label>
+            <input type="tel" id="profPhone" class="stu-input w-100 stu-tabular" value="+92 300 5192041" required>
+          </div>
+          <div class="col-md-6">
+            <label for="profInstitution" class="form-label small fw-semibold">Institution</label>
+            <input type="text" id="profInstitution" class="stu-input w-100" value="NUST Islamabad" required>
+          </div>
+          <div class="col-md-6">
+            <label for="profCity" class="form-label small fw-semibold">City</label>
+            <input type="text" id="profCity" class="stu-input w-100" value="Islamabad" required>
+          </div>
+          <div class="col-md-6">
+            <label for="profDistrict" class="form-label small fw-semibold">District</label>
+            <input type="text" id="profDistrict" class="stu-input w-100" value="Islamabad Capital Territory" required>
+          </div>
+          <div class="col-md-6">
+            <label for="profCgpa" class="form-label small fw-semibold">CGPA</label>
+            <input type="number" step="0.01" id="profCgpa" class="stu-input w-100 stu-tabular" value="3.89" required>
+          </div>
+          <div class="col-md-6">
+            <label for="profIncome" class="form-label small fw-semibold">Monthly Income (USD)</label>
+            <input type="number" id="profIncome" class="stu-input w-100 stu-tabular" value="380" required>
+          </div>
+          <div class="col-12">
+            <label for="profAddress" class="form-label small fw-semibold">Residential Address</label>
+            <input type="text" id="profAddress" class="stu-input w-100" value="House 14, Street 9, Sector G-10/3, Islamabad" required>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="stu-btn stu-btn-primary">Update Profile</button>
+          </div>
+        </div>
+        <div id="stuProfileFeedback" class="alert alert-success mt-3 mb-0 d-none small" role="status">
+          <i class="bi bi-check-circle me-2"></i>Profile information updated.
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

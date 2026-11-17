@@ -1,0 +1,57 @@
+{% extends "donor/base.html" %}
+{% load static %}
+
+{% block title %}Matched Students — Donor Portal{% endblock %}
+{% block breadcrumb %}Matched Students{% endblock %}
+
+{% block content %}
+<div class="dnr-page-header">
+  <div>
+    <h1 class="dnr-page-title">Matched &amp; Supported Students</h1>
+    <p class="dnr-page-subtitle">Roster of scholars funded through your scholarship commitments.</p>
+  </div>
+</div>
+
+<div class="dnr-card">
+  <div class="dnr-table-wrap">
+    <table class="dnr-table">
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Institution</th>
+          <th>CGPA</th>
+          <th>District</th>
+          <th>Scholarship</th>
+          <th>Allocated Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fw-semibold">Mariam Afridi</td>
+          <td>University of Peshawar</td>
+          <td class="dnr-tabular">3.94</td>
+          <td>Peshawar</td>
+          <td>STEM Excellence Award</td>
+          <td class="dnr-tabular fw-semibold">$4,500</td>
+        </tr>
+        <tr>
+          <td class="fw-semibold">Bilal Ahmed</td>
+          <td>UET Lahore</td>
+          <td class="dnr-tabular">3.64</td>
+          <td>Lahore</td>
+          <td>Lahore Engineering Bursary</td>
+          <td class="dnr-tabular fw-semibold">$3,000</td>
+        </tr>
+        <tr>
+          <td class="fw-semibold">Ayesha Siddiqui</td>
+          <td>NUST Islamabad</td>
+          <td class="dnr-tabular">3.89</td>
+          <td>Islamabad</td>
+          <td>Women in Computing Grant</td>
+          <td class="dnr-tabular fw-semibold">$3,500</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

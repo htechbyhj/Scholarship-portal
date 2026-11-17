@@ -1,0 +1,166 @@
+{% extends "donor/base.html" %}
+{% load static %}
+
+{% block title %}Donor Dashboard — ScholarBridge{% endblock %}
+{% block breadcrumb %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dnr-page-header">
+  <div>
+    <h1 class="dnr-page-title">Horizon Education Trust</h1>
+    <p class="dnr-page-subtitle">Manage sponsored scholarships, funding commitments, and matched student cohorts.</p>
+  </div>
+  <div class="d-flex gap-2">
+    <a href="/donor/scholarships/create/" class="dnr-btn dnr-btn-outline">Create Scholarship</a>
+    <a href="/donor/funding/add/" class="dnr-btn dnr-btn-primary">Add Funding</a>
+  </div>
+</div>
+
+<!-- 6 Required KPI Cards -->
+<section class="dnr-kpi-grid" aria-label="Donor funding metrics">
+  <div class="dnr-kpi-card">
+    <div class="dnr-kpi-label">Total Scholarships Created</div>
+    <div class="dnr-kpi-value">6</div>
+  </div>
+  <div class="dnr-kpi-card">
+    <div class="dnr-kpi-label">Total Funding</div>
+    <div class="dnr-kpi-value">$420,000</div>
+  </div>
+  <div class="dnr-kpi-card">
+    <div class="dnr-kpi-label">Remaining Funding</div>
+    <div class="dnr-kpi-value text-primary">$74,500</div>
+  </div>
+  <div class="dnr-kpi-card">
+    <div class="dnr-kpi-label">Total Supported Students</div>
+    <div class="dnr-kpi-value text-success">68</div>
+  </div>
+  <div class="dnr-kpi-card">
+    <div class="dnr-kpi-label">Active Funding Pools</div>
+    <div class="dnr-kpi-value">4</div>
+  </div>
+  <div class="dnr-kpi-card">
+    <div class="dnr-kpi-label">Matched Applications</div>
+    <div class="dnr-kpi-value">74</div>
+  </div>
+</section>
+
+<!-- Charts Row -->
+<section class="row g-3 mb-4">
+  <div class="col-lg-8">
+    <div class="dnr-card h-100">
+      <div class="dnr-card-header">
+        <h2 class="dnr-card-title">Funding Overview</h2>
+        <span class="small text-muted">Quarterly Commitments vs. Disbursements</span>
+      </div>
+      <div class="dnr-chart-box">
+        <canvas id="dnrFundingOverviewChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="dnr-card h-100">
+      <div class="dnr-card-header">
+        <h2 class="dnr-card-title">Funding Utilization</h2>
+        <span class="small text-muted">82.3% Utilized</span>
+      </div>
+      <div class="dnr-chart-box">
+        <canvas id="dnrUtilizationChart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Activities & Scholarship Listings -->
+<section class="row g-3 mb-4">
+  <div class="col-lg-7">
+    <div class="dnr-card h-100">
+      <div class="dnr-card-header">
+        <h2 class="dnr-card-title">Recent Scholarship Listings</h2>
+        <a href="/donor/scholarships/" class="dnr-btn dnr-btn-outline dnr-btn-sm">View All</a>
+      </div>
+      <div class="dnr-table-wrap">
+        <table class="dnr-table">
+          <thead>
+            <tr>
+              <th>Scholarship Title</th>
+              <th>Award Amount</th>
+              <th>Deadline</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fw-semibold">STEM Excellence Award</td>
+              <td class="dnr-tabular">$4,500</td>
+              <td class="dnr-tabular">2026-12-15</td>
+              <td><span class="dnr-status dnr-status-success"><i class="bi bi-check-circle"></i><span>Active</span></span></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">Lahore Engineering Bursary</td>
+              <td class="dnr-tabular">$3,000</td>
+              <td class="dnr-tabular">2026-11-30</td>
+              <td><span class="dnr-status dnr-status-warning"><i class="bi bi-clock"></i><span>Closing Soon</span></span></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">Women in Computing Grant</td>
+              <td class="dnr-tabular">$3,500</td>
+              <td class="dnr-tabular">2027-01-20</td>
+              <td><span class="dnr-status dnr-status-success"><i class="bi bi-check-circle"></i><span>Active</span></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="dnr-card h-100">
+      <div class="dnr-card-header">
+        <h2 class="dnr-card-title">Recent Funding Activities</h2>
+        <a href="/donor/funding/" class="small text-decoration-none">All Records</a>
+      </div>
+      <div class="d-grid gap-3 small">
+        <div class="d-flex justify-content-between border-bottom pb-2">
+          <div>
+            <div class="fw-semibold">Added $50,000 to STEM Excellence Pool</div>
+            <div class="text-muted">Preferred District: Lahore &middot; Min CGPA 3.50</div>
+          </div>
+          <span class="dnr-tabular text-muted">3h ago</span>
+        </div>
+        <div class="d-flex justify-content-between border-bottom pb-2">
+          <div>
+            <div class="fw-semibold">Disbursed $4,500 to Mariam Afridi</div>
+            <div class="text-muted">Match MTH-302 &middot; University of Peshawar</div>
+          </div>
+          <span class="dnr-tabular text-muted">1d ago</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="fw-semibold">Matched 6 new BSCS candidates</div>
+            <div class="text-muted">Criteria &amp; ML Eligibility Pairing</div>
+          </div>
+          <span class="dnr-tabular text-muted">2d ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notifications -->
+<section class="dnr-card">
+  <div class="dnr-card-header">
+    <h2 class="dnr-card-title">Notifications</h2>
+    <a href="/donor/notifications/" class="small text-decoration-none">All Alerts</a>
+  </div>
+  <div class="d-grid gap-2 small">
+    <div class="d-flex justify-content-between border-bottom pb-2">
+      <span>8 newly verified applicants match your <strong>STEM Excellence Award</strong> pool criteria.</span>
+      <span class="dnr-tabular text-muted">1h ago</span>
+    </div>
+    <div class="d-flex justify-content-between">
+      <span>Your Q4 disbursement summary is ready in <strong>Funding Management</strong>.</span>
+      <span class="dnr-tabular text-muted">1d ago</span>
+    </div>
+  </div>
+</section>
+{% endblock %}

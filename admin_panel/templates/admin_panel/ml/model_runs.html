@@ -1,0 +1,57 @@
+{% extends "admin_panel/base.html" %}
+{% load static %}
+
+{% block title %}ML Model Runs — Admin Panel{% endblock %}
+{% block breadcrumb %}ML Model Runs{% endblock %}
+
+{% block content %}
+<div class="adm-page-header">
+  <div>
+    <h1 class="adm-page-title">ML Model Runs</h1>
+    <p class="adm-page-subtitle">Training history, algorithm benchmarks, validation accuracy, and active production models.</p>
+  </div>
+</div>
+
+<div class="adm-card">
+  <div class="adm-table-wrap">
+    <table class="adm-table">
+      <thead>
+        <tr>
+          <th>Model Version</th>
+          <th>Algorithm</th>
+          <th>Training Samples</th>
+          <th>Accuracy</th>
+          <th>Active Status</th>
+          <th>Training Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="adm-tabular fw-semibold">v2.4.0</td>
+          <td>Gradient Boosted Trees (XGBoost)</td>
+          <td class="adm-tabular">4,210</td>
+          <td class="adm-tabular fw-semibold">93.8%</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Active Model</span></span></td>
+          <td class="adm-tabular">2026-11-15</td>
+        </tr>
+        <tr>
+          <td class="adm-tabular fw-semibold">v2.3.1</td>
+          <td>Random Forest Classifier</td>
+          <td class="adm-tabular">3,890</td>
+          <td class="adm-tabular">91.2%</td>
+          <td><span class="adm-status adm-status-info"><i class="bi bi-archive"></i><span>Archived</span></span></td>
+          <td class="adm-tabular">2026-09-28</td>
+        </tr>
+        <tr>
+          <td class="adm-tabular fw-semibold">v2.1.0</td>
+          <td>Logistic Regression Baseline</td>
+          <td class="adm-tabular">3,150</td>
+          <td class="adm-tabular">86.4%</td>
+          <td><span class="adm-status adm-status-info"><i class="bi bi-archive"></i><span>Archived</span></span></td>
+          <td class="adm-tabular">2026-06-12</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

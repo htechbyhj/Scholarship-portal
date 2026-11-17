@@ -1,0 +1,76 @@
+{% extends "admin_panel/base.html" %}
+{% load static %}
+
+{% block title %}Funding Matches — Admin Panel{% endblock %}
+{% block breadcrumb %}Funding Matches{% endblock %}
+
+{% block content %}
+<div class="adm-page-header">
+  <div>
+    <h1 class="adm-page-title">Funding Matches</h1>
+    <p class="adm-page-subtitle">Matched student recipients paired with donor funding pools and allocation amounts.</p>
+  </div>
+</div>
+
+<div class="adm-card">
+  <div class="adm-toolbar">
+    <input type="search" class="adm-input flex-grow-1" style="max-width: 340px;" placeholder="Search student, scholarship, or donor..." data-adm-table-search>
+    <select class="adm-select" data-adm-table-filter="status" aria-label="Filter by match status">
+      <option value="">All Match Statuses</option>
+      <option value="allocated">Allocated</option>
+      <option value="pending approval">Pending Approval</option>
+      <option value="disbursed">Disbursed</option>
+    </select>
+  </div>
+
+  <div class="adm-table-wrap">
+    <table class="adm-table">
+      <thead>
+        <tr>
+          <th>Match ID</th>
+          <th>Matched Student</th>
+          <th>Scholarship</th>
+          <th>Donor Pool</th>
+          <th>Allocated Amount</th>
+          <th>Match Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-adm-filterable-row data-status="allocated">
+          <td class="adm-tabular">MTH-304</td>
+          <td>
+            <div class="fw-semibold">Bilal Ahmed</div>
+            <div class="small text-muted">UET Lahore &middot; CGPA 3.64</div>
+          </td>
+          <td>Need-Based Tuition Grant</td>
+          <td>Crescent Endowment Fund</td>
+          <td class="adm-tabular fw-semibold">$3,200</td>
+          <td><span class="adm-status adm-status-info"><i class="bi bi-link-45deg"></i><span>Allocated</span></span></td>
+        </tr>
+        <tr data-adm-filterable-row data-status="disbursed">
+          <td class="adm-tabular">MTH-302</td>
+          <td>
+            <div class="fw-semibold">Mariam Afridi</div>
+            <div class="small text-muted">Univ. of Peshawar &middot; CGPA 3.94</div>
+          </td>
+          <td>STEM Excellence Award</td>
+          <td>Horizon Education Trust</td>
+          <td class="adm-tabular fw-semibold">$4,500</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Disbursed</span></span></td>
+        </tr>
+        <tr data-adm-filterable-row data-status="pending approval">
+          <td class="adm-tabular">MTH-299</td>
+          <td>
+            <div class="fw-semibold">Hira Salman</div>
+            <div class="small text-muted">NUST Islamabad &middot; CGPA 3.89</div>
+          </td>
+          <td>STEM Excellence Award</td>
+          <td>Horizon Education Trust</td>
+          <td class="adm-tabular fw-semibold">$4,500</td>
+          <td><span class="adm-status adm-status-warning"><i class="bi bi-clock"></i><span>Pending Approval</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

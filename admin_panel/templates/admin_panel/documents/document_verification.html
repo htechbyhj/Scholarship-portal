@@ -1,0 +1,134 @@
+{% extends "admin_panel/base.html" %}
+{% load static %}
+
+{% block title %}Document Verification — Admin Panel{% endblock %}
+{% block breadcrumb %}Document Verification{% endblock %}
+
+{% block content %}
+<div class="adm-page-header">
+  <div>
+    <h1 class="adm-page-title">Document Verification</h1>
+    <p class="adm-page-subtitle">Inspect uploaded academic transcripts, CNIC scans, and household income certificates.</p>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-7">
+    <div class="adm-card h-100">
+      <div class="adm-card-header">
+        <h2 class="adm-card-title">Verification Queue</h2>
+        <select class="adm-select" data-adm-table-filter="status" aria-label="Filter documents">
+          <option value="">All Statuses</option>
+          <option value="pending">Pending</option>
+          <option value="verified">Verified</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+      <div class="adm-table-wrap">
+        <table class="adm-table">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Document Type</th>
+              <th>Status</th>
+              <th class="text-end">Review</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-adm-filterable-row data-status="pending">
+              <td>
+                <div class="fw-semibold">Hira Salman</div>
+                <div class="small text-muted adm-tabular">STU-2049</div>
+              </td>
+              <td>Official Transcript</td>
+              <td><span data-status-badge class="adm-status adm-status-warning"><i class="bi bi-clock"></i><span>Pending</span></span></td>
+              <td class="text-end">
+                <div class="d-inline-flex gap-1">
+                  <button
+                    type="button"
+                    class="adm-btn adm-btn-outline adm-btn-sm"
+                    data-doc-preview-trigger
+                    data-doc-title="Official Transcript — Hira Salman"
+                    data-doc-meta="PDF · 1.4 MB · Uploaded 2026-11-12"
+                    data-doc-summary="NUST Islamabad BSCS Semester 1–6 certified transcript. Cumulative GPA: 3.89 / 4.00. Registrar seal present."
+                  >Preview</button>
+                  <button type="button" class="adm-btn adm-btn-success adm-btn-sm" data-adm-status-action="Verified">Verify</button>
+                  <button type="button" class="adm-btn adm-btn-danger adm-btn-sm" data-adm-status-action="Rejected">Reject</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-adm-filterable-row data-status="pending">
+              <td>
+                <div class="fw-semibold">Hamza Tariq</div>
+                <div class="small text-muted adm-tabular">STU-2081</div>
+              </td>
+              <td>Income Certificate</td>
+              <td><span data-status-badge class="adm-status adm-status-warning"><i class="bi bi-clock"></i><span>Pending</span></span></td>
+              <td class="text-end">
+                <div class="d-inline-flex gap-1">
+                  <button
+                    type="button"
+                    class="adm-btn adm-btn-outline adm-btn-sm"
+                    data-doc-preview-trigger
+                    data-doc-title="Income Certificate — Hamza Tariq"
+                    data-doc-meta="JPG · 840 KB · Uploaded 2026-11-14"
+                    data-doc-summary="District Revenue Officer attested household monthly income statement showing $290 monthly earnings."
+                  >Preview</button>
+                  <button type="button" class="adm-btn adm-btn-success adm-btn-sm" data-adm-status-action="Verified">Verify</button>
+                  <button type="button" class="adm-btn adm-btn-danger adm-btn-sm" data-adm-status-action="Rejected">Reject</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-adm-filterable-row data-status="verified">
+              <td>
+                <div class="fw-semibold">Bilal Ahmed</div>
+                <div class="small text-muted adm-tabular">STU-1940</div>
+              </td>
+              <td>National ID (CNIC)</td>
+              <td><span data-status-badge class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Verified</span></span></td>
+              <td class="text-end">
+                <div class="d-inline-flex gap-1">
+                  <button
+                    type="button"
+                    class="adm-btn adm-btn-outline adm-btn-sm"
+                    data-doc-preview-trigger
+                    data-doc-title="National ID (CNIC) — Bilal Ahmed"
+                    data-doc-meta="PNG · 620 KB · Uploaded 2026-11-08"
+                    data-doc-summary="Front and back high-resolution CNIC scan matching student profile number 35202-9182736-1."
+                  >Preview</button>
+                  <button type="button" class="adm-btn adm-btn-success adm-btn-sm" data-adm-status-action="Verified">Verify</button>
+                  <button type="button" class="adm-btn adm-btn-danger adm-btn-sm" data-adm-status-action="Rejected">Reject</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="adm-card h-100">
+      <div class="adm-card-header">
+        <h2 class="adm-card-title">Document Preview</h2>
+      </div>
+      <div class="adm-doc-preview">
+        <div>
+          <div class="d-flex align-items-center gap-2 mb-2 text-primary">
+            <i class="bi bi-file-earmark-pdf fs-3"></i>
+            <span id="admDocPreviewTitle" class="fw-bold">Official Transcript — Hira Salman</span>
+          </div>
+          <div id="admDocPreviewMeta" class="small text-muted adm-tabular mb-3">PDF &middot; 1.4 MB &middot; Uploaded 2026-11-12</div>
+          <p id="admDocPreviewSummary" class="small mb-0">
+            NUST Islamabad BSCS Semester 1–6 certified transcript. Cumulative GPA: 3.89 / 4.00. Registrar seal present.
+          </p>
+        </div>
+        <div class="pt-3 mt-4 border-top d-flex justify-content-between align-items-center small text-muted">
+          <span>Click any row Preview button to inspect file metadata.</span>
+          <i class="bi bi-eye"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

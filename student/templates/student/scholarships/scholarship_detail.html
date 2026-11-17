@@ -1,0 +1,58 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}Scholarship Details — Student Portal{% endblock %}
+{% block breadcrumb %}Scholarship Details{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">STEM Excellence Award</h1>
+    <p class="stu-page-subtitle">Sponsored by Horizon Education Trust &middot; Deadline <span class="stu-tabular">2026-12-15</span></p>
+  </div>
+  <a href="/student/scholarships/apply/" class="stu-btn stu-btn-primary">Apply Now</a>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-8">
+    <div class="stu-card">
+      <h2 class="stu-card-title mb-3">Full Program Description</h2>
+      <p class="text-muted">
+        The STEM Excellence Award supports full-time undergraduate students enrolled in Computer Science, Software Engineering, Electrical Engineering, and Applied Mathematics across accredited partner universities. Awards cover annual tuition, laboratory consumables, and textbook allowances for two consecutive semesters.
+      </p>
+
+      <h3 class="h6 fw-bold mt-4 mb-2">Eligibility Requirements</h3>
+      <ul class="text-muted small d-grid gap-2">
+        <li>Enrolled in an accredited 4-year undergraduate STEM degree program.</li>
+        <li>Minimum cumulative GPA of 3.50 on a 4.00 scale verified by official registrar transcript.</li>
+        <li>Monthly household income must not exceed $650 with valid supporting income certificate.</li>
+        <li>No concurrent full-tuition scholarship from external institutional sponsors.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="stu-card">
+      <h2 class="stu-card-title mb-3">Requirements Summary</h2>
+      <div class="d-grid gap-2 small mb-4">
+        <div class="d-flex justify-content-between border-bottom pb-2">
+          <span class="text-muted">Award Amount</span><strong class="stu-tabular">$4,500</strong>
+        </div>
+        <div class="d-flex justify-content-between border-bottom pb-2">
+          <span class="text-muted">CGPA Requirement</span><strong class="stu-tabular">&ge; 3.50 / 4.00</strong>
+        </div>
+        <div class="d-flex justify-content-between border-bottom pb-2">
+          <span class="text-muted">Income Requirement</span><strong class="stu-tabular">&le; $650 / month</strong>
+        </div>
+        <div class="d-flex justify-content-between border-bottom pb-2">
+          <span class="text-muted">Application Deadline</span><strong class="stu-tabular">2026-12-15</strong>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span class="text-muted">Your Eligibility</span><strong class="text-success">Qualified (3.89 CGPA)</strong>
+        </div>
+      </div>
+      <a href="/student/scholarships/apply/" class="stu-btn stu-btn-primary w-100">Proceed to Application</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

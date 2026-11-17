@@ -1,0 +1,81 @@
+{% extends "admin_panel/base.html" %}
+{% load static %}
+
+{% block title %}Student Management — Admin Panel{% endblock %}
+{% block breadcrumb %}Student Management{% endblock %}
+
+{% block content %}
+<div class="adm-page-header">
+  <div>
+    <h1 class="adm-page-title">Student Management</h1>
+    <p class="adm-page-subtitle">Academic records, household income profiles, and verification status across registered students.</p>
+  </div>
+</div>
+
+<div class="adm-card">
+  <div class="adm-toolbar">
+    <input type="search" class="adm-input flex-grow-1" style="max-width: 340px;" placeholder="Search student, CNIC, or institution..." data-adm-table-search>
+    <select class="adm-select" data-adm-table-filter="district" aria-label="Filter by district">
+      <option value="">All Districts</option>
+      <option value="islamabad">Islamabad</option>
+      <option value="lahore">Lahore</option>
+      <option value="multan">Multan</option>
+      <option value="peshawar">Peshawar</option>
+    </select>
+  </div>
+
+  <div class="adm-table-wrap">
+    <table class="adm-table">
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>CNIC</th>
+          <th>Institution</th>
+          <th>District</th>
+          <th>CGPA</th>
+          <th>Monthly Income</th>
+          <th>Profile Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-adm-filterable-row data-district="islamabad">
+          <td class="fw-semibold">Ayesha Siddiqui</td>
+          <td class="adm-tabular">61101-4829104-2</td>
+          <td>NUST Islamabad</td>
+          <td>Islamabad</td>
+          <td class="adm-tabular">3.89</td>
+          <td class="adm-tabular">$380</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Verified</span></span></td>
+        </tr>
+        <tr data-adm-filterable-row data-district="lahore">
+          <td class="fw-semibold">Bilal Ahmed</td>
+          <td class="adm-tabular">35202-9182736-1</td>
+          <td>UET Lahore</td>
+          <td>Lahore</td>
+          <td class="adm-tabular">3.64</td>
+          <td class="adm-tabular">$310</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Verified</span></span></td>
+        </tr>
+        <tr data-adm-filterable-row data-district="multan">
+          <td class="fw-semibold">Hamza Tariq</td>
+          <td class="adm-tabular">36302-5512904-5</td>
+          <td>Bahauddin Zakariya University</td>
+          <td>Multan</td>
+          <td class="adm-tabular">3.52</td>
+          <td class="adm-tabular">$290</td>
+          <td><span class="adm-status adm-status-warning"><i class="bi bi-clock"></i><span>Pending Docs</span></span></td>
+        </tr>
+        <tr data-adm-filterable-row data-district="peshawar">
+          <td class="fw-semibold">Mariam Afridi</td>
+          <td class="adm-tabular">17301-7410293-8</td>
+          <td>University of Peshawar</td>
+          <td>Peshawar</td>
+          <td class="adm-tabular">3.94</td>
+          <td class="adm-tabular">$260</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Verified</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

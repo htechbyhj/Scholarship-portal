@@ -1,0 +1,33 @@
+{% extends "donor/base.html" %}
+{% load static %}
+
+{% block title %}Notifications — Donor Portal{% endblock %}
+{% block breadcrumb %}Notifications{% endblock %}
+
+{% block content %}
+<div class="dnr-page-header">
+  <div>
+    <h1 class="dnr-page-title">Notifications</h1>
+    <p class="dnr-page-subtitle">Funding match updates, disbursement confirmations, and scholarship alerts.</p>
+  </div>
+</div>
+
+<div class="dnr-card">
+  <div class="d-grid gap-3">
+    <div class="d-flex justify-content-between border-bottom pb-3">
+      <div>
+        <div class="fw-semibold">8 newly verified applicants matched to STEM Excellence Award</div>
+        <div class="small text-muted">Funding Matches &middot; Criteria &amp; ML scoring complete</div>
+      </div>
+      <span class="dnr-tabular small text-muted">1h ago</span>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div>
+        <div class="fw-semibold">Q4 disbursement summary published</div>
+        <div class="small text-muted">Funding Management &middot; $345,500 disbursed across 68 scholars</div>
+      </div>
+      <span class="dnr-tabular small text-muted">1d ago</span>
+    </div>
+  </div>
+</div>
+{% endblock %}

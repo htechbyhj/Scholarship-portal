@@ -1,0 +1,140 @@
+{% extends "admin_panel/base.html" %}
+{% load static %}
+
+{% block title %}Application Management — Admin Panel{% endblock %}
+{% block breadcrumb %}Application Management{% endblock %}
+
+{% block content %}
+<div class="adm-page-header">
+  <div>
+    <h1 class="adm-page-title">Application Management</h1>
+    <p class="adm-page-subtitle">Evaluate student applications, academic CGPA, monthly household income, and record decisions.</p>
+  </div>
+</div>
+
+<div class="adm-card">
+  <div class="adm-toolbar">
+    <input type="search" class="adm-input flex-grow-1" style="max-width: 340px;" placeholder="Search student or scholarship..." data-adm-table-search>
+    <select class="adm-select" data-adm-table-filter="status" aria-label="Filter by status">
+      <option value="">All Statuses</option>
+      <option value="pending">Pending</option>
+      <option value="approved">Approved</option>
+      <option value="rejected">Rejected</option>
+    </select>
+  </div>
+
+  <div class="adm-table-wrap">
+    <table class="adm-table">
+      <thead>
+        <tr>
+          <th>App ID</th>
+          <th>Student</th>
+          <th>Scholarship</th>
+          <th>CGPA</th>
+          <th>Monthly Income</th>
+          <th>Status</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="appRow1" data-adm-filterable-row data-status="pending">
+          <td class="adm-tabular">APP-4091</td>
+          <td>
+            <div class="fw-semibold">Hira Salman</div>
+            <div class="small text-muted">NUST Islamabad</div>
+          </td>
+          <td>STEM Excellence Award</td>
+          <td class="adm-tabular">3.89</td>
+          <td class="adm-tabular">$340</td>
+          <td><span data-status-badge class="adm-status adm-status-warning"><i class="bi bi-clock"></i><span>Pending</span></span></td>
+          <td class="text-end">
+            <div class="d-inline-flex gap-1">
+              <button type="button" class="adm-btn adm-btn-outline adm-btn-sm" data-bs-toggle="modal" data-bs-target="#admAppDetailModal">Details</button>
+              <button type="button" class="adm-btn adm-btn-success adm-btn-sm" data-adm-status-action="Approved">Approve</button>
+              <button type="button" class="adm-btn adm-btn-danger adm-btn-sm" data-adm-status-action="Rejected">Reject</button>
+            </div>
+          </td>
+        </tr>
+        <tr id="appRow2" data-adm-filterable-row data-status="approved">
+          <td class="adm-tabular">APP-4090</td>
+          <td>
+            <div class="fw-semibold">Bilal Ahmed</div>
+            <div class="small text-muted">UET Lahore</div>
+          </td>
+          <td>Need-Based Tuition Grant</td>
+          <td class="adm-tabular">3.64</td>
+          <td class="adm-tabular">$310</td>
+          <td><span data-status-badge class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Approved</span></span></td>
+          <td class="text-end">
+            <div class="d-inline-flex gap-1">
+              <button type="button" class="adm-btn adm-btn-outline adm-btn-sm" data-bs-toggle="modal" data-bs-target="#admAppDetailModal">Details</button>
+              <button type="button" class="adm-btn adm-btn-success adm-btn-sm" data-adm-status-action="Approved">Approve</button>
+              <button type="button" class="adm-btn adm-btn-danger adm-btn-sm" data-adm-status-action="Rejected">Reject</button>
+            </div>
+          </td>
+        </tr>
+        <tr id="appRow3" data-adm-filterable-row data-status="pending">
+          <td class="adm-tabular">APP-4087</td>
+          <td>
+            <div class="fw-semibold">Farhan Qureshi</div>
+            <div class="small text-muted">FAST Karachi</div>
+          </td>
+          <td>Rural Talent Fellowship</td>
+          <td class="adm-tabular">3.58</td>
+          <td class="adm-tabular">$295</td>
+          <td><span data-status-badge class="adm-status adm-status-warning"><i class="bi bi-clock"></i><span>Pending</span></span></td>
+          <td class="text-end">
+            <div class="d-inline-flex gap-1">
+              <button type="button" class="adm-btn adm-btn-outline adm-btn-sm" data-bs-toggle="modal" data-bs-target="#admAppDetailModal">Details</button>
+              <button type="button" class="adm-btn adm-btn-success adm-btn-sm" data-adm-status-action="Approved">Approve</button>
+              <button type="button" class="adm-btn adm-btn-danger adm-btn-sm" data-adm-status-action="Rejected">Reject</button>
+            </div>
+          </td>
+        </tr>
+        <tr id="appRow4" data-adm-filterable-row data-status="rejected">
+          <td class="adm-tabular">APP-4084</td>
+          <td>
+            <div class="fw-semibold">Zainab Raza</div>
+            <div class="small text-muted">Comsats Wah</div>
+          </td>
+          <td>Women in Computing</td>
+          <td class="adm-tabular">3.12</td>
+          <td class="adm-tabular">$780</td>
+          <td><span data-status-badge class="adm-status adm-status-danger"><i class="bi bi-x-circle"></i><span>Rejected</span></span></td>
+          <td class="text-end">
+            <div class="d-inline-flex gap-1">
+              <button type="button" class="adm-btn adm-btn-outline adm-btn-sm" data-bs-toggle="modal" data-bs-target="#admAppDetailModal">Details</button>
+              <button type="button" class="adm-btn adm-btn-success adm-btn-sm" data-adm-status-action="Approved">Approve</button>
+              <button type="button" class="adm-btn adm-btn-danger adm-btn-sm" data-adm-status-action="Rejected">Reject</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="admAppDetailModal" tabindex="-1" aria-labelledby="admAppDetailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h5 fw-bold" id="admAppDetailModalLabel">Application Details — APP-4091</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body small">
+        <div class="d-grid gap-2">
+          <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Student</span><strong>Hira Salman (BS Computer Science)</strong></div>
+          <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Institution</span><strong>NUST Islamabad</strong></div>
+          <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">CGPA</span><strong class="adm-tabular">3.89 / 4.00</strong></div>
+          <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Monthly Household Income</span><strong class="adm-tabular">$340</strong></div>
+          <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Documents Attached</span><strong>Transcript, CNIC, Income Slip</strong></div>
+          <div class="d-flex justify-content-between"><span class="text-muted">Submitted Date</span><strong class="adm-tabular">2026-11-12</strong></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="adm-btn adm-btn-outline" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

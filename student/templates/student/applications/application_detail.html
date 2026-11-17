@@ -1,0 +1,60 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}Application Details — Student Portal{% endblock %}
+{% block breadcrumb %}Application Details{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">Application APP-4091 — STEM Excellence Award</h1>
+    <p class="stu-page-subtitle">Submitted on <span class="stu-tabular">2026-11-12</span> &middot; Horizon Education Trust</p>
+  </div>
+  <span class="stu-status stu-status-warning"><i class="bi bi-clock"></i><span>Under Committee Review</span></span>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-6">
+    <div class="stu-card h-100">
+      <h2 class="stu-card-title mb-3">Submitted Information</h2>
+      <div class="d-grid gap-2 small">
+        <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Scholarship</span><strong>STEM Excellence Award</strong></div>
+        <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Award Amount</span><strong class="stu-tabular">$4,500</strong></div>
+        <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Submitted CGPA</span><strong class="stu-tabular">3.89 / 4.00</strong></div>
+        <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Monthly Household Income</span><strong class="stu-tabular">$380</strong></div>
+        <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Institution</span><strong>NUST Islamabad</strong></div>
+        <div class="d-flex justify-content-between"><span class="text-muted">Attached Files</span><strong>Transcript.pdf, Income_Cert.pdf</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="stu-card h-100">
+      <h2 class="stu-card-title mb-3">Status History Timeline</h2>
+      <div class="stu-timeline">
+        <div class="stu-timeline-step">
+          <div class="stu-timeline-icon stu-status-success"><i class="bi bi-check-lg"></i></div>
+          <div>
+            <div class="fw-semibold small">Application Received</div>
+            <div class="small text-muted stu-tabular">2026-11-12 10:15 &middot; Intake Confirmed</div>
+          </div>
+        </div>
+        <div class="stu-timeline-step">
+          <div class="stu-timeline-icon stu-status-success"><i class="bi bi-file-check"></i></div>
+          <div>
+            <div class="fw-semibold small">Documents Verified</div>
+            <div class="small text-muted stu-tabular">2026-11-14 14:40 &middot; Transcript &amp; CNIC Approved</div>
+          </div>
+        </div>
+        <div class="stu-timeline-step">
+          <div class="stu-timeline-icon stu-status-info"><i class="bi bi-hourglass-split"></i></div>
+          <div>
+            <div class="fw-semibold small">Scholarship Committee Review</div>
+            <div class="small text-muted stu-tabular">In Progress &middot; Donor Matching Scheduled</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

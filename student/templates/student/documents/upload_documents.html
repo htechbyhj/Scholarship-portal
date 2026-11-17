@@ -1,0 +1,49 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}Upload Documents — Student Portal{% endblock %}
+{% block breadcrumb %}Upload Documents{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">Upload Verification Documents</h1>
+    <p class="stu-page-subtitle">Submit official transcripts, national ID scans, and household income certificates.</p>
+  </div>
+</div>
+
+<div class="stu-card" style="max-width: 720px;">
+  <form data-stu-form data-feedback-target="stuUploadFeedback" novalidate>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="docType" class="form-label small fw-semibold">Document Type</label>
+        <select id="docType" class="stu-select w-100" required>
+          <option value="transcript">Official Academic Transcript</option>
+          <option value="cnic">National ID (CNIC)</option>
+          <option value="income">Household Income Certificate</option>
+          <option value="enrollment">University Enrollment Letter</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="docIssueDate" class="form-label small fw-semibold">Document Issue Date</label>
+        <input type="date" id="docIssueDate" class="stu-input w-100" required>
+      </div>
+      <div class="col-12">
+        <label for="docFile" class="form-label small fw-semibold">Select File (PDF, PNG, JPG)</label>
+        <div class="stu-dropzone">
+          <i class="bi bi-cloud-arrow-up fs-2 text-primary d-block mb-2"></i>
+          <div class="small fw-semibold mb-2">Choose a document file from your device</div>
+          <input type="file" id="docFile" class="form-control" data-stu-file-input data-preview-target="stuDocPreview" required>
+          <div id="stuDocPreview"></div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="stu-btn stu-btn-primary">Upload Document</button>
+      </div>
+    </div>
+    <div id="stuUploadFeedback" class="alert alert-success mt-3 mb-0 d-none small" role="status">
+      <i class="bi bi-check-circle me-2"></i>Document uploaded and queued for verification.
+    </div>
+  </form>
+</div>
+{% endblock %}

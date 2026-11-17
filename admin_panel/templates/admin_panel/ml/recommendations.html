@@ -1,0 +1,91 @@
+{% extends "admin_panel/base.html" %}
+{% load static %}
+
+{% block title %}ML Recommendations — Admin Panel{% endblock %}
+{% block breadcrumb %}ML Recommendations{% endblock %}
+
+{% block content %}
+<div class="adm-page-header">
+  <div>
+    <h1 class="adm-page-title">ML Recommendations</h1>
+    <p class="adm-page-subtitle">Predictive eligibility rankings, model rationale, and suggested donor funding pairings.</p>
+  </div>
+  <a href="/admin/ml/model-runs/" class="adm-btn adm-btn-outline">Inspect Model Runs</a>
+</div>
+
+<div class="adm-card">
+  <div class="adm-toolbar">
+    <input type="search" class="adm-input flex-grow-1" style="max-width: 340px;" placeholder="Search ranked student or recommendation..." data-adm-table-search>
+  </div>
+
+  <div class="adm-table-wrap">
+    <table class="adm-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Student</th>
+          <th>Eligibility Score</th>
+          <th>Predicted Eligibility</th>
+          <th>Recommendation Reason</th>
+          <th>Funding Match</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-adm-filterable-row>
+          <td class="adm-tabular fw-bold">#1</td>
+          <td>
+            <div class="fw-semibold">Mariam Afridi</div>
+            <div class="small text-muted">CGPA 3.94 &middot; Income $260</div>
+          </td>
+          <td class="adm-tabular fw-semibold">96.4%</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Highly Eligible</span></span></td>
+          <td class="small">Top 2% CGPA in cohort, verified low household income, STEM degree preference match.</td>
+          <td>
+            <div class="fw-semibold">Horizon Trust ($4,500)</div>
+            <div class="small text-muted">STEM Excellence Award</div>
+          </td>
+        </tr>
+        <tr data-adm-filterable-row>
+          <td class="adm-tabular fw-bold">#2</td>
+          <td>
+            <div class="fw-semibold">Hira Salman</div>
+            <div class="small text-muted">CGPA 3.89 &middot; Income $340</div>
+          </td>
+          <td class="adm-tabular fw-semibold">93.1%</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Highly Eligible</span></span></td>
+          <td class="small">Strong academic standing with verified transcript and zero overlapping active awards.</td>
+          <td>
+            <div class="fw-semibold">Horizon Trust ($4,500)</div>
+            <div class="small text-muted">STEM Excellence Award</div>
+          </td>
+        </tr>
+        <tr data-adm-filterable-row>
+          <td class="adm-tabular fw-bold">#3</td>
+          <td>
+            <div class="fw-semibold">Bilal Ahmed</div>
+            <div class="small text-muted">CGPA 3.64 &middot; Income $310</div>
+          </td>
+          <td class="adm-tabular fw-semibold">88.7%</td>
+          <td><span class="adm-status adm-status-info"><i class="bi bi-check2"></i><span>Eligible</span></span></td>
+          <td class="small">Meets Lahore district preference and financial need threshold for tuition grant.</td>
+          <td>
+            <div class="fw-semibold">Crescent Fund ($3,200)</div>
+            <div class="small text-muted">Need-Based Tuition Grant</div>
+          </td>
+        </tr>
+        <tr data-adm-filterable-row>
+          <td class="adm-tabular fw-bold">#4</td>
+          <td>
+            <div class="fw-semibold">Zainab Raza</div>
+            <div class="small text-muted">CGPA 3.12 &middot; Income $780</div>
+          </td>
+          <td class="adm-tabular fw-semibold">41.2%</td>
+          <td><span class="adm-status adm-status-danger"><i class="bi bi-x-circle"></i><span>Not Eligible</span></span></td>
+          <td class="small">Household income exceeds $650 program cap and CGPA falls below 3.20 threshold.</td>
+          <td class="text-muted small">No pool match</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

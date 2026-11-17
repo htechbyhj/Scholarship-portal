@@ -1,0 +1,58 @@
+{% load static %}
+<header class="stu-topbar">
+  <div class="d-flex align-items-center gap-3 min-width-0">
+    <button type="button" id="stuSidebarToggle" class="stu-icon-btn d-lg-none" aria-label="Open navigation menu">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="small text-muted text-truncate">
+      <span>Student Portal</span>
+      <span class="mx-1">/</span>
+      <strong style="color: var(--stu-text);">{% block breadcrumb %}Dashboard{% endblock %}</strong>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center gap-2">
+    <a href="/" class="stu-btn stu-btn-outline stu-btn-sm d-none d-sm-inline-flex">
+      <i class="bi bi-house"></i><span>Home</span>
+    </a>
+
+    <button type="button" id="stuThemeToggle" class="stu-icon-btn" aria-label="Toggle color theme">
+      <i class="bi bi-moon"></i>
+    </button>
+
+    <div class="dropdown">
+      <button type="button" class="stu-icon-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open notifications">
+        <i class="bi bi-bell"></i>
+        <span class="stu-notif-count">2</span>
+      </button>
+      <div class="dropdown-menu dropdown-menu-end stu-dropdown-menu">
+        <div class="px-2 py-1 border-bottom d-flex justify-content-between align-items-center">
+          <span class="fw-semibold small">Notifications</span>
+          <a href="/student/notifications/" class="small text-decoration-none">View all</a>
+        </div>
+        <a class="dropdown-item" href="/student/applications/detail/">
+          <div class="fw-semibold">Application moved to Committee Review</div>
+          <div class="small text-muted">STEM Excellence Award &middot; 2h ago</div>
+        </a>
+        <a class="dropdown-item" href="/student/documents/">
+          <div class="fw-semibold">Official Transcript verified</div>
+          <div class="small text-muted">Document Verification &middot; 1d ago</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button type="button" class="stu-avatar-btn" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="{% static 'student/images/avatar_student.jpg' %}" alt="Ayesha Siddiqui" class="stu-avatar-img" referrerpolicy="no-referrer">
+        <span class="d-none d-md-inline">Ayesha Siddiqui</span>
+        <i class="bi bi-chevron-down small"></i>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end stu-dropdown-menu">
+        <li><a class="dropdown-item" href="/student/profile/"><i class="bi bi-person me-2"></i>My Profile</a></li>
+        <li><a class="dropdown-item" href="/student/settings/"><i class="bi bi-gear me-2"></i>Settings</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="/student/login/"><i class="bi bi-box-arrow-left me-2"></i>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

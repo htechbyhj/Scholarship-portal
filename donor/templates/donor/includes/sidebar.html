@@ -1,0 +1,50 @@
+<aside id="dnrSidebar" class="dnr-sidebar" aria-label="Donor sidebar navigation">
+  <div class="dnr-sidebar-header">
+    <a href="/donor/dashboard/" class="dnr-brand">
+      <span class="dnr-brand-mark" aria-hidden="true"><i class="bi bi-heart-fill"></i></span>
+      <span>Donor Portal</span>
+    </a>
+    <button type="button" id="dnrSidebarClose" class="btn btn-sm d-lg-none" aria-label="Close sidebar">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <nav class="dnr-sidebar-nav">
+    <a href="/donor/dashboard/" class="dnr-nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+      <i class="bi bi-grid"></i><span>Dashboard</span>
+    </a>
+    <a href="/donor/scholarships/" class="dnr-nav-item {% if active_page == 'my_scholarships' %}active{% endif %}">
+      <i class="bi bi-award"></i><span>My Scholarships</span>
+    </a>
+    <a href="/donor/scholarships/create/" class="dnr-nav-item {% if active_page == 'create_scholarship' %}active{% endif %}">
+      <i class="bi bi-plus-square"></i><span>Create Scholarship</span>
+    </a>
+    <a href="/donor/funding/" class="dnr-nav-item {% if active_page == 'funding_management' %}active{% endif %}">
+      <i class="bi bi-wallet2"></i><span>Funding Management</span>
+    </a>
+    <a href="/donor/funding/add/" class="dnr-nav-item {% if active_page == 'add_funding' %}active{% endif %}">
+      <i class="bi bi-cash-coin"></i><span>Add Funding</span>
+    </a>
+    <a href="/donor/matches/" class="dnr-nav-item {% if active_page == 'funding_matches' %}active{% endif %}">
+      <i class="bi bi-diagram-3"></i><span>Funding Matches</span>
+    </a>
+    <a href="/donor/matched-students/" class="dnr-nav-item {% if active_page == 'matched_students' %}active{% endif %}">
+      <i class="bi bi-people"></i><span>Matched Students</span>
+    </a>
+    <a href="/donor/notifications/" class="dnr-nav-item {% if active_page == 'notifications' %}active{% endif %}">
+      <i class="bi bi-bell"></i><span>Notifications</span>
+    </a>
+    <a href="/donor/profile/" class="dnr-nav-item {% if active_page == 'profile' %}active{% endif %}">
+      <i class="bi bi-building"></i><span>My Profile</span>
+    </a>
+    <a href="/donor/settings/" class="dnr-nav-item {% if active_page == 'settings' %}active{% endif %}">
+      <i class="bi bi-gear"></i><span>Settings</span>
+    </a>
+  </nav>
+
+  <div class="dnr-sidebar-footer">
+    <a href="/donor/login/" class="dnr-nav-item">
+      <i class="bi bi-box-arrow-left"></i><span>Logout</span>
+    </a>
+  </div>
+</aside>

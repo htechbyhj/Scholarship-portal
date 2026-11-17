@@ -1,0 +1,68 @@
+{% load static %}
+<aside id="admSidebar" class="adm-sidebar" aria-label="Admin sidebar navigation">
+  <div class="adm-sidebar-header">
+    <a href="/admin/dashboard/" class="adm-brand">
+      <span class="adm-brand-mark" aria-hidden="true"><i class="bi bi-shield-lock-fill"></i></span>
+      <span>ScholarBridge Admin</span>
+    </a>
+    <button type="button" id="admSidebarClose" class="btn btn-sm text-light d-lg-none" aria-label="Close sidebar">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <nav class="adm-sidebar-nav">
+    <a href="/admin/dashboard/" class="adm-nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+      <i class="bi bi-grid"></i><span>Dashboard</span>
+    </a>
+
+    <div class="adm-nav-group-label">Directory</div>
+    <a href="/admin/users/" class="adm-nav-item {% if active_page == 'users' %}active{% endif %}">
+      <i class="bi bi-people"></i><span>User Management</span>
+    </a>
+    <a href="/admin/students/" class="adm-nav-item {% if active_page == 'students' %}active{% endif %}">
+      <i class="bi bi-mortarboard"></i><span>Student Management</span>
+    </a>
+    <a href="/admin/donors/" class="adm-nav-item {% if active_page == 'donors' %}active{% endif %}">
+      <i class="bi bi-building-heart"></i><span>Donor Management</span>
+    </a>
+
+    <div class="adm-nav-group-label">Operations</div>
+    <a href="/admin/scholarships/" class="adm-nav-item {% if active_page == 'scholarships' %}active{% endif %}">
+      <i class="bi bi-award"></i><span>Scholarship Management</span>
+    </a>
+    <a href="/admin/applications/" class="adm-nav-item {% if active_page == 'applications' %}active{% endif %}">
+      <i class="bi bi-file-earmark-check"></i><span>Application Management</span>
+    </a>
+    <a href="/admin/documents/" class="adm-nav-item {% if active_page == 'documents' %}active{% endif %}">
+      <i class="bi bi-folder-check"></i><span>Document Verification</span>
+    </a>
+    <a href="/admin/funding/" class="adm-nav-item {% if active_page == 'funding' %}active{% endif %}">
+      <i class="bi bi-wallet2"></i><span>Funding Management</span>
+    </a>
+    <a href="/admin/funding-matches/" class="adm-nav-item {% if active_page == 'funding_matches' %}active{% endif %}">
+      <i class="bi bi-diagram-3"></i><span>Funding Matches</span>
+    </a>
+
+    <div class="adm-nav-group-label">Intelligence</div>
+    <a href="/admin/ml/recommendations/" class="adm-nav-item {% if active_page == 'ml_recommendations' %}active{% endif %}">
+      <i class="bi bi-stars"></i><span>ML Recommendations</span>
+    </a>
+    <a href="/admin/ml/model-runs/" class="adm-nav-item {% if active_page == 'ml_model_runs' %}active{% endif %}">
+      <i class="bi bi-cpu"></i><span>ML Model Runs</span>
+    </a>
+
+    <div class="adm-nav-group-label">System</div>
+    <a href="/admin/notifications/" class="adm-nav-item {% if active_page == 'notifications' %}active{% endif %}">
+      <i class="bi bi-bell"></i><span>Notifications</span>
+    </a>
+    <a href="/admin/settings/" class="adm-nav-item {% if active_page == 'settings' %}active{% endif %}">
+      <i class="bi bi-gear"></i><span>Settings</span>
+    </a>
+  </nav>
+
+  <div class="adm-sidebar-footer">
+    <a href="/admin/login/" class="adm-nav-item">
+      <i class="bi bi-box-arrow-left"></i><span>Logout</span>
+    </a>
+  </div>
+</aside>

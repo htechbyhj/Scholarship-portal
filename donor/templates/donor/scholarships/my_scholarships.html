@@ -1,0 +1,100 @@
+{% extends "donor/base.html" %}
+{% load static %}
+
+{% block title %}My Scholarships — Donor Portal{% endblock %}
+{% block breadcrumb %}My Scholarships{% endblock %}
+
+{% block content %}
+<div class="dnr-page-header">
+  <div>
+    <h1 class="dnr-page-title">My Scholarships</h1>
+    <p class="dnr-page-subtitle">Scholarships created and sponsored by Horizon Education Trust.</p>
+  </div>
+  <a href="/donor/scholarships/create/" class="dnr-btn dnr-btn-primary">Create Scholarship</a>
+</div>
+
+<div class="dnr-card">
+  <div class="d-flex flex-wrap gap-2 mb-3">
+    <input type="search" class="dnr-input flex-grow-1" style="max-width: 320px;" placeholder="Search scholarship title..." data-dnr-search>
+    <select class="dnr-select" data-dnr-filter aria-label="Filter scholarships">
+      <option value="">All Statuses</option>
+      <option value="active">Active</option>
+      <option value="closing soon">Closing Soon</option>
+    </select>
+  </div>
+
+  <div class="dnr-table-wrap">
+    <table class="dnr-table">
+      <thead>
+        <tr>
+          <th>Scholarship Title</th>
+          <th>Amount</th>
+          <th>Application Deadline</th>
+          <th>Status</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-dnr-filterable data-status="active">
+          <td class="fw-semibold">STEM Excellence Award</td>
+          <td class="dnr-tabular">$4,500</td>
+          <td class="dnr-tabular">2026-12-15</td>
+          <td><span class="dnr-status dnr-status-success"><i class="bi bi-check-circle"></i><span>Active</span></span></td>
+          <td class="text-end">
+            <div class="d-inline-flex gap-1">
+              <button type="button" class="dnr-btn dnr-btn-outline dnr-btn-sm" data-bs-toggle="modal" data-bs-target="#dnrScholarshipViewModal">View</button>
+              <a href="/donor/scholarships/create/" class="dnr-btn dnr-btn-outline dnr-btn-sm">Edit</a>
+            </div>
+          </td>
+        </tr>
+        <tr data-dnr-filterable data-status="closing soon">
+          <td class="fw-semibold">Lahore Engineering Bursary</td>
+          <td class="dnr-tabular">$3,000</td>
+          <td class="dnr-tabular">2026-11-30</td>
+          <td><span class="dnr-status dnr-status-warning"><i class="bi bi-clock"></i><span>Closing Soon</span></span></td>
+          <td class="text-end">
+            <div class="d-inline-flex gap-1">
+              <button type="button" class="dnr-btn dnr-btn-outline dnr-btn-sm" data-bs-toggle="modal" data-bs-target="#dnrScholarshipViewModal">View</button>
+              <a href="/donor/scholarships/create/" class="dnr-btn dnr-btn-outline dnr-btn-sm">Edit</a>
+            </div>
+          </td>
+        </tr>
+        <tr data-dnr-filterable data-status="active">
+          <td class="fw-semibold">Women in Computing Grant</td>
+          <td class="dnr-tabular">$3,500</td>
+          <td class="dnr-tabular">2027-01-20</td>
+          <td><span class="dnr-status dnr-status-success"><i class="bi bi-check-circle"></i><span>Active</span></span></td>
+          <td class="text-end">
+            <div class="d-inline-flex gap-1">
+              <button type="button" class="dnr-btn dnr-btn-outline dnr-btn-sm" data-bs-toggle="modal" data-bs-target="#dnrScholarshipViewModal">View</button>
+              <a href="/donor/scholarships/create/" class="dnr-btn dnr-btn-outline dnr-btn-sm">Edit</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="dnrScholarshipViewModal" tabindex="-1" aria-labelledby="dnrScholarshipViewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h5 fw-bold" id="dnrScholarshipViewModalLabel">STEM Excellence Award</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body small">
+        <p class="text-muted">Supports full-time undergraduate STEM students with CGPA &ge; 3.50 and monthly household income &le; $650.</p>
+        <div class="d-grid gap-2">
+          <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Award Amount</span><strong class="dnr-tabular">$4,500</strong></div>
+          <div class="d-flex justify-content-between border-bottom pb-2"><span class="text-muted">Deadline</span><strong class="dnr-tabular">2026-12-15</strong></div>
+          <div class="d-flex justify-content-between"><span class="text-muted">Matched Scholars</span><strong class="dnr-tabular">39</strong></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="dnr-btn dnr-btn-outline" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

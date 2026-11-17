@@ -1,0 +1,151 @@
+{% extends "admin_panel/base.html" %}
+{% load static %}
+
+{% block title %}User Management — Admin Panel{% endblock %}
+{% block breadcrumb %}User Management{% endblock %}
+
+{% block content %}
+<div class="adm-page-header">
+  <div>
+    <h1 class="adm-page-title">User Management</h1>
+    <p class="adm-page-subtitle">Search, filter, and inspect registered student, donor, and administrator accounts.</p>
+  </div>
+  <button type="button" class="adm-btn adm-btn-primary" data-bs-toggle="modal" data-bs-target="#admUserDetailModal">
+    <i class="bi bi-person-plus"></i><span>Inspect Selected Account</span>
+  </button>
+</div>
+
+<div class="adm-card">
+  <div class="adm-toolbar">
+    <input type="search" class="adm-input flex-grow-1" style="max-width: 340px;" placeholder="Search name, email, or user ID..." data-adm-table-search>
+    <select class="adm-select" data-adm-table-filter="role" aria-label="Filter by role">
+      <option value="">All Roles</option>
+      <option value="student">Student</option>
+      <option value="donor">Donor</option>
+      <option value="admin">Admin</option>
+    </select>
+    <select class="adm-select" data-adm-table-filter="status" aria-label="Filter by status">
+      <option value="">All Statuses</option>
+      <option value="active">Active</option>
+      <option value="pending">Pending</option>
+      <option value="suspended">Suspended</option>
+    </select>
+  </div>
+
+  <div class="adm-table-wrap">
+    <table class="adm-table">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>City</th>
+          <th>Status</th>
+          <th>Joined</th>
+          <th class="text-end">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-adm-filterable-row data-role="student" data-status="active">
+          <td class="adm-tabular">USR-1042</td>
+          <td class="fw-semibold">Ayesha Siddiqui</td>
+          <td>ayesha.siddiqui@nust.edu</td>
+          <td>Student</td>
+          <td>Islamabad</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Active</span></span></td>
+          <td class="adm-tabular">2026-09-12</td>
+          <td class="text-end">
+            <button type="button" class="adm-btn adm-btn-outline adm-btn-sm" data-bs-toggle="modal" data-bs-target="#admUserDetailModal">View</button>
+          </td>
+        </tr>
+        <tr data-adm-filterable-row data-role="donor" data-status="active">
+          <td class="adm-tabular">USR-1039</td>
+          <td class="fw-semibold">Horizon Education Trust</td>
+          <td>grants@horizontrust.org</td>
+          <td>Donor</td>
+          <td>Lahore</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Active</span></span></td>
+          <td class="adm-tabular">2026-08-24</td>
+          <td class="text-end">
+            <button type="button" class="adm-btn adm-btn-outline adm-btn-sm" data-bs-toggle="modal" data-bs-target="#admUserDetailModal">View</button>
+          </td>
+        </tr>
+        <tr data-adm-filterable-row data-role="student" data-status="pending">
+          <td class="adm-tabular">USR-1035</td>
+          <td class="fw-semibold">Hamza Tariq</td>
+          <td>hamza.tariq@uet.edu</td>
+          <td>Student</td>
+          <td>Multan</td>
+          <td><span class="adm-status adm-status-warning"><i class="bi bi-clock"></i><span>Pending</span></span></td>
+          <td class="adm-tabular">2026-11-10</td>
+          <td class="text-end">
+            <button type="button" class="adm-btn adm-btn-outline adm-btn-sm" data-bs-toggle="modal" data-bs-target="#admUserDetailModal">View</button>
+          </td>
+        </tr>
+        <tr data-adm-filterable-row data-role="admin" data-status="active">
+          <td class="adm-tabular">USR-1001</td>
+          <td class="fw-semibold">Dr. Nadia Mansoor</td>
+          <td>nadia.mansoor@scholarbridge.edu</td>
+          <td>Admin</td>
+          <td>Islamabad</td>
+          <td><span class="adm-status adm-status-info"><i class="bi bi-shield-check"></i><span>Active</span></span></td>
+          <td class="adm-tabular">2025-01-08</td>
+          <td class="text-end">
+            <button type="button" class="adm-btn adm-btn-outline adm-btn-sm" data-bs-toggle="modal" data-bs-target="#admUserDetailModal">View</button>
+          </td>
+        </tr>
+        <tr data-adm-filterable-row data-role="donor" data-status="suspended">
+          <td class="adm-tabular">USR-1018</td>
+          <td class="fw-semibold">Beacon Civic Fund</td>
+          <td>contact@beaconcivic.org</td>
+          <td>Donor</td>
+          <td>Karachi</td>
+          <td><span class="adm-status adm-status-danger"><i class="bi bi-slash-circle"></i><span>Suspended</span></span></td>
+          <td class="adm-tabular">2026-04-19</td>
+          <td class="text-end">
+            <button type="button" class="adm-btn adm-btn-outline adm-btn-sm" data-bs-toggle="modal" data-bs-target="#admUserDetailModal">View</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- User Details Modal -->
+<div class="modal fade" id="admUserDetailModal" tabindex="-1" aria-labelledby="admUserDetailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h5 fw-bold" id="admUserDetailModalLabel">User Account Details</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-grid gap-3 small">
+          <div class="d-flex justify-content-between border-bottom pb-2">
+            <span class="text-muted">User ID</span><strong class="adm-tabular">USR-1042</strong>
+          </div>
+          <div class="d-flex justify-content-between border-bottom pb-2">
+            <span class="text-muted">Full Name</span><strong>Ayesha Siddiqui</strong>
+          </div>
+          <div class="d-flex justify-content-between border-bottom pb-2">
+            <span class="text-muted">Role</span><strong>Student Applicant</strong>
+          </div>
+          <div class="d-flex justify-content-between border-bottom pb-2">
+            <span class="text-muted">Email</span><strong>ayesha.siddiqui@nust.edu</strong>
+          </div>
+          <div class="d-flex justify-content-between border-bottom pb-2">
+            <span class="text-muted">Verification</span><strong>CNIC &amp; Transcript Verified</strong>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">Last Login</span><strong class="adm-tabular">2026-11-17 09:42</strong>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="adm-btn adm-btn-outline" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

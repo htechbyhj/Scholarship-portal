@@ -1,0 +1,191 @@
+{% extends "student/base.html" %}
+{% load static %}
+
+{% block title %}Student Dashboard — ScholarBridge{% endblock %}
+{% block breadcrumb %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="stu-page-header">
+  <div>
+    <h1 class="stu-page-title">Welcome back, Ayesha Siddiqui</h1>
+    <p class="stu-page-subtitle">BS Computer Science &middot; NUST Islamabad &middot; CGPA <span class="stu-tabular">3.89</span></p>
+  </div>
+  <a href="/student/scholarships/" class="stu-btn stu-btn-primary">
+    <i class="bi bi-search"></i><span>Explore Scholarships</span>
+  </a>
+</div>
+
+<!-- 5 Required KPI Cards -->
+<section class="stu-kpi-grid" aria-label="Student summary metrics">
+  <div class="stu-kpi-card">
+    <div class="stu-kpi-label">Available Scholarships</div>
+    <div class="stu-kpi-value">42</div>
+  </div>
+  <div class="stu-kpi-card">
+    <div class="stu-kpi-label">My Applications</div>
+    <div class="stu-kpi-value">4</div>
+  </div>
+  <div class="stu-kpi-card">
+    <div class="stu-kpi-label">Approved Applications</div>
+    <div class="stu-kpi-value text-success">1</div>
+  </div>
+  <div class="stu-kpi-card">
+    <div class="stu-kpi-label">Pending Applications</div>
+    <div class="stu-kpi-value text-warning">2</div>
+  </div>
+  <div class="stu-kpi-card">
+    <div class="stu-kpi-label">Rejected Applications</div>
+    <div class="stu-kpi-value text-danger">1</div>
+  </div>
+</section>
+
+<!-- Profile Completion + Status Tracking -->
+<section class="row g-3 mb-4">
+  <div class="col-lg-5">
+    <div class="stu-card h-100">
+      <div class="stu-card-header">
+        <h2 class="stu-card-title">Profile Completion</h2>
+        <span class="stu-tabular fw-bold text-primary">85%</span>
+      </div>
+      <div class="progress mb-3" style="height: 8px;">
+        <div class="progress-bar bg-primary" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <p class="small text-muted mb-3">Complete your household income slip upload to reach 100% readiness for need-based grants.</p>
+      <div class="d-grid gap-2 small mb-3">
+        <div class="d-flex justify-content-between"><span>Personal &amp; CNIC Details</span><span class="text-success fw-semibold">Complete</span></div>
+        <div class="d-flex justify-content-between"><span>Academic Transcript</span><span class="text-success fw-semibold">Verified</span></div>
+        <div class="d-flex justify-content-between"><span>Updated Income Certificate</span><span class="text-warning fw-semibold">Pending Upload</span></div>
+      </div>
+      <a href="/student/documents/upload/" class="stu-btn stu-btn-outline stu-btn-sm">Upload Missing Document</a>
+    </div>
+  </div>
+
+  <div class="col-lg-7">
+    <div class="stu-card h-100">
+      <div class="stu-card-header">
+        <h2 class="stu-card-title">Active Application Tracking</h2>
+        <a href="/student/applications/detail/" class="small text-decoration-none">Full Timeline</a>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+          <div class="fw-semibold">STEM Excellence Award</div>
+          <div class="small text-muted">Application <span class="stu-tabular">APP-4091</span> &middot; Submitted 2026-11-12</div>
+        </div>
+        <span class="stu-status stu-status-warning"><i class="bi bi-clock"></i><span>Under Review</span></span>
+      </div>
+      <div class="stu-timeline">
+        <div class="stu-timeline-step">
+          <div class="stu-timeline-icon stu-status-success"><i class="bi bi-check-lg"></i></div>
+          <div>
+            <div class="fw-semibold small">Application Submitted</div>
+            <div class="small text-muted">Academic records and personal statement received &middot; 2026-11-12</div>
+          </div>
+        </div>
+        <div class="stu-timeline-step">
+          <div class="stu-timeline-icon stu-status-success"><i class="bi bi-check-lg"></i></div>
+          <div>
+            <div class="fw-semibold small">Transcript &amp; CNIC Verified</div>
+            <div class="small text-muted">Confirmed by Verification Officer &middot; 2026-11-14</div>
+          </div>
+        </div>
+        <div class="stu-timeline-step">
+          <div class="stu-timeline-icon stu-status-info"><i class="bi bi-hourglass-split"></i></div>
+          <div>
+            <div class="fw-semibold small">Committee &amp; Donor Matching</div>
+            <div class="small text-muted">Scheduled for final selection review &middot; Expected 2026-11-24</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Applications & Recommended Scholarships -->
+<section class="row g-3 mb-4">
+  <div class="col-lg-7">
+    <div class="stu-card h-100">
+      <div class="stu-card-header">
+        <h2 class="stu-card-title">Recent Applications</h2>
+        <a href="/student/applications/" class="stu-btn stu-btn-outline stu-btn-sm">View All</a>
+      </div>
+      <div class="stu-table-wrap">
+        <table class="stu-table">
+          <thead>
+            <tr>
+              <th>Scholarship</th>
+              <th>Applied Date</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fw-semibold">STEM Excellence Award</td>
+              <td class="stu-tabular">2026-11-12</td>
+              <td class="stu-tabular">$4,500</td>
+              <td><span class="stu-status stu-status-warning"><i class="bi bi-clock"></i><span>Pending</span></span></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">Women in Computing Fellowship</td>
+              <td class="stu-tabular">2026-10-18</td>
+              <td class="stu-tabular">$3,000</td>
+              <td><span class="stu-status stu-status-success"><i class="bi bi-check-circle"></i><span>Approved</span></span></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold">Need-Based Tuition Grant</td>
+              <td class="stu-tabular">2026-11-03</td>
+              <td class="stu-tabular">$3,200</td>
+              <td><span class="stu-status stu-status-warning"><i class="bi bi-clock"></i><span>Pending</span></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="stu-card h-100">
+      <div class="stu-card-header">
+        <h2 class="stu-card-title">Recommended for You</h2>
+        <a href="/student/scholarships/recommended/" class="stu-btn stu-btn-outline stu-btn-sm">See Matches</a>
+      </div>
+      <div class="d-grid gap-3">
+        <div class="p-3 border rounded-3">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <div class="fw-semibold">STEM Excellence Award</div>
+            <span class="stu-tabular fw-bold text-primary small">94% Match</span>
+          </div>
+          <div class="small text-muted mb-2">Your 3.89 CGPA exceeds the 3.50 threshold and matches Islamabad engineering preferences.</div>
+          <a href="/student/scholarships/detail/" class="small fw-semibold text-decoration-none">View Scholarship &rarr;</a>
+        </div>
+        <div class="p-3 border rounded-3">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <div class="fw-semibold">National Merit Tuition Bursary</div>
+            <span class="stu-tabular fw-bold text-primary small">89% Match</span>
+          </div>
+          <div class="small text-muted mb-2">Household income and BSCS enrollment satisfy donor criteria.</div>
+          <a href="/student/scholarships/detail/" class="small fw-semibold text-decoration-none">View Scholarship &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notifications Strip -->
+<section class="stu-card">
+  <div class="stu-card-header">
+    <h2 class="stu-card-title">Recent Notifications</h2>
+    <a href="/student/notifications/" class="small text-decoration-none">All Notifications</a>
+  </div>
+  <div class="d-grid gap-2 small">
+    <div class="d-flex justify-content-between border-bottom pb-2">
+      <span>Your application <strong>APP-4091</strong> has passed document verification.</span>
+      <span class="stu-tabular text-muted">2h ago</span>
+    </div>
+    <div class="d-flex justify-content-between">
+      <span>Deadline reminder: <strong>Need-Based Tuition Grant</strong> closes on Nov 30.</span>
+      <span class="stu-tabular text-muted">1d ago</span>
+    </div>
+  </div>
+</section>
+{% endblock %}

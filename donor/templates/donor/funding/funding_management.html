@@ -1,0 +1,62 @@
+{% extends "donor/base.html" %}
+{% load static %}
+
+{% block title %}Funding Management — Donor Portal{% endblock %}
+{% block breadcrumb %}Funding Management{% endblock %}
+
+{% block content %}
+<div class="dnr-page-header">
+  <div>
+    <h1 class="dnr-page-title">Funding Management</h1>
+    <p class="dnr-page-subtitle">Track committed funding pools, remaining balances, supported student counts, and funding dates.</p>
+  </div>
+  <a href="/donor/funding/add/" class="dnr-btn dnr-btn-primary">Add Funding</a>
+</div>
+
+<div class="dnr-card">
+  <div class="dnr-table-wrap">
+    <table class="dnr-table">
+      <thead>
+        <tr>
+          <th>Pool ID</th>
+          <th>Scholarship</th>
+          <th>Total Amount</th>
+          <th>Remaining Amount</th>
+          <th>Students Supported</th>
+          <th>Funding Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="dnr-tabular">FND-882</td>
+          <td class="fw-semibold">STEM Excellence Award</td>
+          <td class="dnr-tabular">$250,000</td>
+          <td class="dnr-tabular">$74,500</td>
+          <td class="dnr-tabular">39</td>
+          <td class="dnr-tabular">2026-09-01</td>
+          <td><span class="dnr-status dnr-status-success"><i class="bi bi-check-circle"></i><span>Active</span></span></td>
+        </tr>
+        <tr>
+          <td class="dnr-tabular">FND-841</td>
+          <td class="fw-semibold">Lahore Engineering Bursary</td>
+          <td class="dnr-tabular">$90,000</td>
+          <td class="dnr-tabular">$0</td>
+          <td class="dnr-tabular">20</td>
+          <td class="dnr-tabular">2026-05-15</td>
+          <td><span class="dnr-status dnr-status-info"><i class="bi bi-check2-all"></i><span>Fully Utilized</span></span></td>
+        </tr>
+        <tr>
+          <td class="dnr-tabular">FND-810</td>
+          <td class="fw-semibold">Women in Computing Grant</td>
+          <td class="dnr-tabular">$80,000</td>
+          <td class="dnr-tabular">$48,500</td>
+          <td class="dnr-tabular">9</td>
+          <td class="dnr-tabular">2026-10-12</td>
+          <td><span class="dnr-status dnr-status-success"><i class="bi bi-check-circle"></i><span>Active</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

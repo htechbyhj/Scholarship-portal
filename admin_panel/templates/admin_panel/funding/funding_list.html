@@ -1,0 +1,82 @@
+{% extends "admin_panel/base.html" %}
+{% load static %}
+
+{% block title %}Funding Management — Admin Panel{% endblock %}
+{% block breadcrumb %}Funding Management{% endblock %}
+
+{% block content %}
+<div class="adm-page-header">
+  <div>
+    <h1 class="adm-page-title">Funding Management</h1>
+    <p class="adm-page-subtitle">Monitor donor funding pools, remaining balances, and student capacity across active grants.</p>
+  </div>
+</div>
+
+<section class="adm-kpi-grid" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Total Funding Committed</span><span class="adm-kpi-icon"><i class="bi bi-wallet2"></i></span></div>
+    <div class="adm-kpi-value">$4,650,000</div>
+    <div class="adm-kpi-meta">Across 312 donor pools</div>
+  </div>
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Remaining Funding</span><span class="adm-kpi-icon"><i class="bi bi-piggy-bank"></i></span></div>
+    <div class="adm-kpi-value">$1,180,500</div>
+    <div class="adm-kpi-meta">Available for active cohort matching</div>
+  </div>
+  <div class="adm-kpi-card">
+    <div class="adm-kpi-top"><span>Supported Students</span><span class="adm-kpi-icon"><i class="bi bi-people"></i></span></div>
+    <div class="adm-kpi-value">1,142</div>
+    <div class="adm-kpi-meta">Currently funded scholars</div>
+  </div>
+</section>
+
+<div class="adm-card">
+  <div class="adm-toolbar">
+    <input type="search" class="adm-input flex-grow-1" style="max-width: 340px;" placeholder="Search donor or scholarship pool..." data-adm-table-search>
+  </div>
+  <div class="adm-table-wrap">
+    <table class="adm-table">
+      <thead>
+        <tr>
+          <th>Pool ID</th>
+          <th>Donor</th>
+          <th>Scholarship Program</th>
+          <th>Total Funding</th>
+          <th>Remaining Funding</th>
+          <th>Supported Students</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-adm-filterable-row>
+          <td class="adm-tabular">FND-882</td>
+          <td class="fw-semibold">Horizon Education Trust</td>
+          <td>STEM Excellence Award</td>
+          <td class="adm-tabular">$250,000</td>
+          <td class="adm-tabular">$74,500</td>
+          <td class="adm-tabular">39</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Active</span></span></td>
+        </tr>
+        <tr data-adm-filterable-row>
+          <td class="adm-tabular">FND-879</td>
+          <td class="fw-semibold">Crescent Endowment Fund</td>
+          <td>Need-Based Tuition Grant</td>
+          <td class="adm-tabular">$180,000</td>
+          <td class="adm-tabular">$32,000</td>
+          <td class="adm-tabular">46</td>
+          <td><span class="adm-status adm-status-success"><i class="bi bi-check-circle"></i><span>Active</span></span></td>
+        </tr>
+        <tr data-adm-filterable-row>
+          <td class="adm-tabular">FND-864</td>
+          <td class="fw-semibold">Meridian Foundation</td>
+          <td>Rural Talent Fellowship</td>
+          <td class="adm-tabular">$120,000</td>
+          <td class="adm-tabular">$0</td>
+          <td class="adm-tabular">31</td>
+          <td><span class="adm-status adm-status-info"><i class="bi bi-check2-all"></i><span>Fully Allocated</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
